@@ -100,5 +100,10 @@ namespace JsonMetadataToClass
       NotImplementedException exception = new NotImplementedException("Not yet implemented");
       throw exception;
     }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+
+    }
   }
 }
