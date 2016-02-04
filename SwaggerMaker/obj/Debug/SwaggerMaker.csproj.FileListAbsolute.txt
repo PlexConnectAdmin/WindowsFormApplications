@@ -1,0 +1,8 @@
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\bin\Debug\SwaggerMaker.exe.config
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\bin\Debug\SwaggerMaker.exe
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\bin\Debug\SwaggerMaker.pdb
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\obj\Debug\SwaggerMaker.csprojResolveAssemblyReference.cache
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\obj\Debug\SwaggerMaker.Properties.Resources.resources
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\obj\Debug\SwaggerMaker.csproj.GenerateResource.Cache
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\obj\Debug\SwaggerMaker.exe
+c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\SwaggerMaker\obj\Debug\SwaggerMaker.pdb

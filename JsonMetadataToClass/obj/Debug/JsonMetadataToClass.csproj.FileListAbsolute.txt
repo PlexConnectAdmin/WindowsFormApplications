@@ -1,0 +1,46 @@
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\EPAM.ReportPortal.Addins.NUnit.dll.config
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\Plex.Restful.Api.Testing.dll.config
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.exe.config
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.exe
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.pdb
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\Plex.Restful.Api.Testing.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\RestSharp.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\nunit.core.interfaces.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\log4net.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\EPAM.ReportPortal.Addins.NUnit.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\AutoMapper.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\EPAM.ReportPortal.Client.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\nunit.framework.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.Core.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\EPAM.ReportPortal.Shared.dll
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\Plex.Restful.Api.Testing.pdb
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\RestSharp.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\log4net.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\AutoMapper.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\nunit.framework.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.pdb
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.Core.pdb
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\bin\Debug\FluentAssertions.Core.xml
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.csprojResolveAssemblyReference.cache
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.Form1.resources
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.Properties.Resources.resources
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.csproj.GenerateResource.Cache
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.exe
+C:\Dev\Git\Research-Tests\Plex.Restful.Api.Testing\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.pdb
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.exe
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.pdb
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.csprojResolveAssemblyReference.cache
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.Form1.resources
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.Properties.Resources.resources
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\obj\Debug\JsonMetadataToClass.csproj.GenerateResource.Cache
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.exe.config
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.exe
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\JsonMetadataToClass.pdb
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\ClassLibrary.dll
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\ClassLibrary.pdb
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.xml
