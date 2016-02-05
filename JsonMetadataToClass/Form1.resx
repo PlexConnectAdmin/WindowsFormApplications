@@ -117,4 +117,240 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBoxInput.Text" xml:space="preserve">
+    <value>{
+  "apiModuleRouteName": "PartList",
+  "apiResourceRouteName": "DcItems",
+  "apiActionRouteName": "GetDcItems",
+  "verb": "GET",
+  "requestFields": [
+    {
+      "fieldName": "PartNo",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Revision",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    }
+  ],
+  "responseFields": [
+    {
+      "fieldName": "ApprovedSupplier",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "MakeOrBuy",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Inventory",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "AverageValue",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "AvgPrice",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": true
+    },
+    {
+      "fieldName": "Cost",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "CustomerPartExists",
+      "dataType": "short",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Engineer2FullName",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Engineer3FullName",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "EngineerFullName",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "InventoryUnit",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "LeadTime",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "MinimumInventoryQuantity",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "MinimumJobQuantity",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "MinimumOrderQuantity",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Name",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PartGroup",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PartNo",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PartProductGroup",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PartType",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PlannerFullName",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "PlanningGroup",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "ProductType",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "Revision",
+      "dataType": "string",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "StandardJobQuantity",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    },
+    {
+      "fieldName": "StandardOrderQuantity",
+      "dataType": "decimal",
+      "required": false,
+      "identity": false,
+      "deprecated": false,
+      "nullable": false
+    }
+  ]
+}</value>
+  </data>
 </root>

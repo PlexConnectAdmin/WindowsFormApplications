@@ -28,31 +28,16 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.textInput = new System.Windows.Forms.TextBox();
-      this.textOutput = new System.Windows.Forms.TextBox();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.buttonGenerate = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.textNameSpace = new System.Windows.Forms.TextBox();
       this.button1 = new System.Windows.Forms.Button();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
+      this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
+      this.richTextBoxOuput = new System.Windows.Forms.RichTextBox();
       this.SuspendLayout();
-      // 
-      // textInput
-      // 
-      this.textInput.Location = new System.Drawing.Point(25, 31);
-      this.textInput.Multiline = true;
-      this.textInput.Name = "textInput";
-      this.textInput.Size = new System.Drawing.Size(323, 468);
-      this.textInput.TabIndex = 0;
-      // 
-      // textOutput
-      // 
-      this.textOutput.Location = new System.Drawing.Point(369, 31);
-      this.textOutput.Multiline = true;
-      this.textOutput.Name = "textOutput";
-      this.textOutput.Size = new System.Drawing.Size(325, 468);
-      this.textOutput.TabIndex = 1;
       // 
       // buttonGenerate
       // 
@@ -95,9 +80,9 @@
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(25, 12);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(79, 13);
+      this.label2.Size = new System.Drawing.Size(188, 13);
       this.label2.TabIndex = 6;
-      this.label2.Text = "Metadata Input";
+      this.label2.Text = "Metadata Input (initialized with sample)";
       // 
       // label3
       // 
@@ -108,19 +93,35 @@
       this.label3.TabIndex = 7;
       this.label3.Text = "Output";
       // 
+      // richTextBoxInput
+      // 
+      this.richTextBoxInput.Location = new System.Drawing.Point(25, 28);
+      this.richTextBoxInput.Name = "richTextBoxInput";
+      this.richTextBoxInput.Size = new System.Drawing.Size(323, 462);
+      this.richTextBoxInput.TabIndex = 9;
+      this.richTextBoxInput.Text = resources.GetString("richTextBoxInput.Text");
+      // 
+      // richTextBoxOuput
+      // 
+      this.richTextBoxOuput.Location = new System.Drawing.Point(372, 28);
+      this.richTextBoxOuput.Name = "richTextBoxOuput";
+      this.richTextBoxOuput.Size = new System.Drawing.Size(322, 462);
+      this.richTextBoxOuput.TabIndex = 10;
+      this.richTextBoxOuput.Text = "";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(706, 578);
+      this.Controls.Add(this.richTextBoxOuput);
+      this.Controls.Add(this.richTextBoxInput);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.textNameSpace);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.buttonGenerate);
-      this.Controls.Add(this.textOutput);
-      this.Controls.Add(this.textInput);
       this.Name = "Form1";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.Form1_Load);
@@ -131,14 +132,14 @@
 
     #endregion
 
-    private System.Windows.Forms.TextBox textInput;
-    private System.Windows.Forms.TextBox textOutput;
     private System.Windows.Forms.Button buttonGenerate;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox textNameSpace;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.RichTextBox richTextBoxInput;
+    private System.Windows.Forms.RichTextBox richTextBoxOuput;
   }
 }
 

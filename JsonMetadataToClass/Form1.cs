@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
@@ -19,7 +18,7 @@ namespace JsonMetadataToClass
 
     private void buttonGenerate_Click(object sender, EventArgs e)
     {
-      var jsonString = this.textInput.Text;
+      var jsonString = this.richTextBoxInput.Text;
       dynamic jsonInput = JToken.Parse(jsonString);
 
       // also available: string verb = jsonInput.verb;
@@ -31,28 +30,28 @@ namespace JsonMetadataToClass
 
       List<MetadataField> fieldsList = CreateFieldsList(requestFields);
 
-      this.textOutput.Text = "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
-      this.textOutput.Text += Environment.NewLine + "{" + Environment.NewLine;
-      this.textOutput.Text += "  public class " + this._apiActionRouteName + "Request";
-      this.textOutput.Text += Environment.NewLine + "  {";
+      this.richTextBoxOuput.Text = "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
+      this.richTextBoxOuput.Text += Environment.NewLine + "{" + Environment.NewLine;
+      this.richTextBoxOuput.Text += "  public class " + this._apiActionRouteName + "Request";
+      this.richTextBoxOuput.Text += Environment.NewLine + "  {";
 
       WriteProperties(fieldsList);
 
-      this.textOutput.Text += Environment.NewLine + "  }" + Environment.NewLine + "}";
-      this.textOutput.Text += Environment.NewLine;
-      this.textOutput.Text += Environment.NewLine;
+      this.richTextBoxOuput.Text += Environment.NewLine + "  }" + Environment.NewLine + "}";
+      this.richTextBoxOuput.Text += Environment.NewLine;
+      this.richTextBoxOuput.Text += Environment.NewLine;
 
       JArray responseFields = (JArray)jsonInput.responseFields;
       fieldsList = CreateFieldsList(responseFields);
 
-      this.textOutput.Text += "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
-      this.textOutput.Text += Environment.NewLine + "{" + Environment.NewLine;
-      this.textOutput.Text += "  public class " + this._apiActionRouteName + "Response";
-      this.textOutput.Text += Environment.NewLine + "  {";
+      this.richTextBoxOuput.Text += "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
+      this.richTextBoxOuput.Text += Environment.NewLine + "{" + Environment.NewLine;
+      this.richTextBoxOuput.Text += "  public class " + this._apiActionRouteName + "Response";
+      this.richTextBoxOuput.Text += Environment.NewLine + "  {";
 
       WriteProperties(fieldsList);
 
-      this.textOutput.Text += Environment.NewLine + "  }" + Environment.NewLine + "}";
+      this.richTextBoxOuput.Text += Environment.NewLine + "  }" + Environment.NewLine + "}";
     }
 
     /// <summary>
@@ -71,7 +70,7 @@ namespace JsonMetadataToClass
           {
             dataType += "?";
           }
-          this.textOutput.Text += Environment.NewLine + "    public " + dataType + " " + field.FieldName + " { get; set; }";
+          this.richTextBoxOuput.Text += Environment.NewLine + "    public " + dataType + " " + field.FieldName + " { get; set; }";
         }
       }
     }
@@ -97,13 +96,18 @@ namespace JsonMetadataToClass
 
     private void button1_Click(object sender, EventArgs e)
     {
-      NotImplementedException exception = new NotImplementedException("Not yet implemented");
-      throw exception;
+      this.richTextBoxOuput.Text = @"swagger: '2.0'
+info:
+  title: Plex Connect Engineering API
+  description: Pragmatic REST API for Plex Manufacturing Cloud
+  version: 1.0.0
+host: test.api.plex.com
+schemes:
+  - https";
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-
     }
   }
 }
