@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using ClassLibrary;
@@ -14,6 +16,17 @@ namespace JsonMetadataToClass
     public Form1()
     {
       InitializeComponent();
+    }
+
+    /// <summary>
+    /// Undoes the pascal case.
+    /// http://stackoverflow.com/questions/323314/best-way-to-convert-pascal-case-to-a-sentence
+    /// </summary>
+    /// <param name="pascalCase">The Pascal case.</param>
+    /// <returns></returns>
+    private static string UndoPascalCase(string pascalCase)
+    {
+      return Regex.Replace(pascalCase, "(\\B[A-Z])", " $1");
     }
 
     private void buttonGenerate_Click(object sender, EventArgs e)
@@ -100,14 +113,83 @@ namespace JsonMetadataToClass
 info:
   title: Plex Connect Engineering API
   description: Pragmatic REST API for Plex Manufacturing Cloud
-  version: 1.0.0
+  version: " + this.txtVersion.Text + @"
 host: test.api.plex.com
 schemes:
-  - https";
+  - https
+basePath: /" + this.txtApplication.Text.ToLower();
+
+      ClassLibrary.Metadata metadata = new JavaScriptSerializer().Deserialize<Metadata>(this.richTextBoxInput.Text);
+
+      this.richTextBoxOuput.Text += @"
+produces:
+  - application/json
+paths:
+  /v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName + @":
+  " + metadata.verb.ToLower() + @":
+    summary: ";
+
+      string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
+      this.richTextBoxOuput.Text += resourceName + @":
+    description: " + resourceName + " requires bearer token authentication." + @"
+    parameters:" + GetParameterText("authorization", "header", "The authentication type of Bearer and bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`", true, "string ");
+
+          // todo: POSTs will have a different approach for body content
+      foreach (MetadataField field in metadata.requestFields)
+      {
+        this.richTextBoxOuput.Text += GetParameterText(field);
+      }
+    }
+
+    private static string GetParameterText(string name, string inside, string description, bool required, string type)
+    {
+      string parameterText = @"
+        - name: " + name.ToLowerInvariant() + @"
+          in: " + inside + @"
+          description: " + description + @"
+          required: " + required.ToString().ToLowerInvariant() + @"
+          type: " + type.ToLowerInvariant();
+
+      return parameterText;
+    }
+
+    private static string GetParameterText(MetadataField field)
+    {
+      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
+
+      if (field.Deprecated)
+      {
+        description += " This field is deprecated.";
+      }
+
+      return GetParameterText(field.FieldName, "query", description, field.Required, field.DataType);
+
+//      string parameterText = @"
+//        - name: " + field.FieldName.ToLowerInvariant() + @"
+//          in: query
+//          ";
+
+//      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
+
+//      if (field.Deprecated)
+//      {
+//        description += " This field is deprecated.";
+//      }
+
+//      parameterText += "description: " + description + @"
+//          required: " + field.Required.ToString().ToLowerInvariant() + @"
+//          type: " + field.DataType.ToLowerInvariant();
+
+//      return parameterText;
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
+    }
+
+    private void textBox2_TextChanged(object sender, EventArgs e)
+    {
+
     }
   }
 }

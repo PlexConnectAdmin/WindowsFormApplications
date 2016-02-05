@@ -37,6 +37,10 @@
       this.label3 = new System.Windows.Forms.Label();
       this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
       this.richTextBoxOuput = new System.Windows.Forms.RichTextBox();
+      this.txtApplication = new System.Windows.Forms.TextBox();
+      this.label4 = new System.Windows.Forms.Label();
+      this.txtVersion = new System.Windows.Forms.TextBox();
+      this.label5 = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // buttonGenerate
@@ -109,11 +113,50 @@
       this.richTextBoxOuput.TabIndex = 10;
       this.richTextBoxOuput.Text = "";
       // 
+      // txtApplication
+      // 
+      this.txtApplication.Location = new System.Drawing.Point(232, 545);
+      this.txtApplication.Name = "txtApplication";
+      this.txtApplication.Size = new System.Drawing.Size(203, 20);
+      this.txtApplication.TabIndex = 12;
+      this.txtApplication.Text = "engineering";
+      // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Location = new System.Drawing.Point(148, 553);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(73, 13);
+      this.label4.TabIndex = 11;
+      this.label4.Text = "for application";
+      // 
+      // txtVersion
+      // 
+      this.txtVersion.Location = new System.Drawing.Point(533, 545);
+      this.txtVersion.Name = "txtVersion";
+      this.txtVersion.Size = new System.Drawing.Size(30, 20);
+      this.txtVersion.TabIndex = 14;
+      this.txtVersion.Text = "1";
+      this.txtVersion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+      // 
+      // label5
+      // 
+      this.label5.AutoSize = true;
+      this.label5.Location = new System.Drawing.Point(450, 553);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(62, 13);
+      this.label5.TabIndex = 13;
+      this.label5.Text = "and version";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(706, 578);
+      this.Controls.Add(this.txtVersion);
+      this.Controls.Add(this.label5);
+      this.Controls.Add(this.txtApplication);
+      this.Controls.Add(this.label4);
       this.Controls.Add(this.richTextBoxOuput);
       this.Controls.Add(this.richTextBoxInput);
       this.Controls.Add(this.label3);
@@ -140,6 +183,10 @@
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.RichTextBox richTextBoxInput;
     private System.Windows.Forms.RichTextBox richTextBoxOuput;
+    private System.Windows.Forms.TextBox txtApplication;
+    private System.Windows.Forms.Label label4;
+    private System.Windows.Forms.TextBox txtVersion;
+    private System.Windows.Forms.Label label5;
   }
 }
 

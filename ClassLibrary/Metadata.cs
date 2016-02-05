@@ -2,7 +2,7 @@
 
 namespace ClassLibrary
 {
-  class Metadata
+  public class Metadata
   {
     public string apiModuleRouteName { get; set; }
     public string apiResourceRouteName { get; set; }
