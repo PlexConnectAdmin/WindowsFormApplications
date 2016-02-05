@@ -3,7 +3,7 @@
   /// <summary>
   /// Class representing a single metadata field from the Plex API
   /// </summary>
-  public class MetadataField
+  public sealed class MetadataField
   {
     /// <summary>
     /// Gets or sets the name of the field.
