@@ -109,11 +109,13 @@ namespace JsonMetadataToClass
 
     private void button1_Click(object sender, EventArgs e)
     {
+    // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
+    // #.0.0 is required format
       this.richTextBoxOuput.Text = @"swagger: '2.0'
 info:
   title: Plex Connect Engineering API
   description: Pragmatic REST API for Plex Manufacturing Cloud
-  version: " + this.txtVersion.Text + @"
+  version: " + this.txtVersion.Text + @".0.0
 host: test.api.plex.com
 schemes:
   - https
@@ -126,21 +128,111 @@ produces:
   - application/json
 paths:
   /v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName + @":
-  " + metadata.verb.ToLower() + @":
-    summary: ";
+    " + metadata.verb.ToLower() + @":
+      summary: ";
 
       string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
-      this.richTextBoxOuput.Text += resourceName + @":
-    description: " + resourceName + " requires bearer token authentication." + @"
-    parameters:" + GetParameterText("authorization", "header", "The authentication type of Bearer and bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`", true, "string ");
+      this.richTextBoxOuput.Text += resourceName + @"
+      description: " + resourceName + " requires bearer token authentication." + @"
+      parameters:" + GetParameterText("authorization", "header", "The authentication type of Bearer and bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`", true, "string ");
 
-          // todo: POSTs will have a different approach for body content
+      // todo: POSTs will have a different approach for body content
       foreach (MetadataField field in metadata.requestFields)
       {
         this.richTextBoxOuput.Text += GetParameterText(field);
       }
+
+      string responseName = metadata.apiResourceRouteName + "Response";
+
+      this.richTextBoxOuput.Text += @"
+      responses:
+        '200':
+          description: " + UndoPascalCase(responseName) + @"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/" + responseName + @"'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      title:
+        type: string
+      status:
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+  " + responseName + @":
+    type: object
+    properties:";
+
+      foreach (MetadataField field in metadata.responseFields)
+      {
+        this.richTextBoxOuput.Text += GetSchemaObjectProperty(field);
+      }
     }
 
+    /// <summary>
+    /// Gets the schema object property.
+    /// http://swagger.io/specification/#schemaObject
+    /// </summary>
+    /// <param name="field">The field.</param>
+    /// <returns>String representation of the schema object with indentation</returns>
+    private static string GetSchemaObjectProperty(MetadataField field)
+    {
+      string schemaObjectProperty = @"
+      " + field.FieldName.ToLowerInvariant() + ":";
+
+      // http://swagger.io/specification/ -> "Primitive data types in the Swagger Specification are based on the types supported by the JSON-Schema Draft 4. Models are described using the Schema Object which is a subset of JSON Schema Draft 4."
+      switch (field.DataType)
+      {
+        case "decimal":
+          schemaObjectProperty += @"
+          type: number
+          format: double";
+          break;
+        case "short":
+          schemaObjectProperty += @"
+          type: integer
+          format: short (Signed 16-bit integer)";
+          break;
+        default:
+          schemaObjectProperty += @"
+          type: " + field.DataType.ToLowerInvariant();
+          break;
+      }
+
+      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
+
+      if (field.Deprecated)
+      {
+        description += " This field is deprecated.";
+      }
+
+      schemaObjectProperty += @"
+          description: " + description;
+
+      return schemaObjectProperty;
+    }
+
+    /// <summary>
+    /// Gets the parameter text.
+    /// http://swagger.io/specification/#parameterObject
+    /// </summary>
+    /// <param name="name">The name.</param>
+    /// <param name="inside">The inside.</param>
+    /// <param name="description">The description.</param>
+    /// <param name="required">if set to <c>true</c> [required].</param>
+    /// <param name="type">The type.</param>
+    /// <returns></returns>
     private static string GetParameterText(string name, string inside, string description, bool required, string type)
     {
       string parameterText = @"
@@ -163,24 +255,6 @@ paths:
       }
 
       return GetParameterText(field.FieldName, "query", description, field.Required, field.DataType);
-
-//      string parameterText = @"
-//        - name: " + field.FieldName.ToLowerInvariant() + @"
-//          in: query
-//          ";
-
-//      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
-
-//      if (field.Deprecated)
-//      {
-//        description += " This field is deprecated.";
-//      }
-
-//      parameterText += "description: " + description + @"
-//          required: " + field.Required.ToString().ToLowerInvariant() + @"
-//          type: " + field.DataType.ToLowerInvariant();
-
-//      return parameterText;
     }
 
     private void Form1_Load(object sender, EventArgs e)
