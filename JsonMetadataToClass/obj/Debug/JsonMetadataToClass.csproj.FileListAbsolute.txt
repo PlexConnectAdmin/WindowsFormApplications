@@ -44,3 +44,6 @@ C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToC
 C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.dll
 C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\ClassLibrary.pdb
 C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\YamlDotNet.dll
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\YamlDotNet.pdb
+C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\JsonMetadataToClass\bin\Debug\YamlDotNet.xml

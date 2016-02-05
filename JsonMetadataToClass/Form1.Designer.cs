@@ -41,6 +41,7 @@
       this.label4 = new System.Windows.Forms.Label();
       this.txtVersion = new System.Windows.Forms.TextBox();
       this.label5 = new System.Windows.Forms.Label();
+      this.btnYaml = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // buttonGenerate
@@ -77,7 +78,7 @@
       this.button1.TabIndex = 5;
       this.button1.Text = "Generate Swagger";
       this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.button1.Click += new System.EventHandler(this.BtnSwagger);
       // 
       // label2
       // 
@@ -149,11 +150,22 @@
       this.label5.TabIndex = 13;
       this.label5.Text = "and version";
       // 
+      // btnYaml
+      // 
+      this.btnYaml.Location = new System.Drawing.Point(610, 545);
+      this.btnYaml.Name = "btnYaml";
+      this.btnYaml.Size = new System.Drawing.Size(107, 23);
+      this.btnYaml.TabIndex = 15;
+      this.btnYaml.Text = "Generate Swagger";
+      this.btnYaml.UseVisualStyleBackColor = true;
+      this.btnYaml.Click += new System.EventHandler(this.btnYaml_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(957, 578);
+      this.Controls.Add(this.btnYaml);
       this.Controls.Add(this.txtVersion);
       this.Controls.Add(this.label5);
       this.Controls.Add(this.txtApplication);
@@ -188,6 +200,7 @@
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.TextBox txtVersion;
     private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.Button btnYaml;
   }
 }
 

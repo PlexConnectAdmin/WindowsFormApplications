@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using ClassLibrary;
+using YamlDotNet.Core;
+using YamlDotNet.Serialization;
 
 namespace JsonMetadataToClass
 {
@@ -107,10 +110,86 @@ namespace JsonMetadataToClass
         }).ToList();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void btnYaml_Click(object sender, EventArgs e)
     {
-    // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
-    // #.0.0 is required format
+
+      ClassLibrary.Metadata metadata = new JavaScriptSerializer().Deserialize<Metadata>(this.richTextBoxInput.Text);
+      string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
+
+//      Parameter[] parameters = null;
+
+
+      var swagger = new
+      {
+        swagger = "2.0",
+        info = new
+        {
+          title = "Plex Connect " + this.txtApplication.Text + " API",
+          description = "Pragmatic REST API for the " + this.txtApplication.Text + " application of the Plex Manufacturing Cloud",
+
+          // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
+          // #.0.0 is required format
+          version = this.txtVersion.Text + ".0.0"
+        },
+        host = "test.api.plex.com",
+        schemes = new[] { "https" },
+        basePath = "/" + this.txtApplication.Text.ToLowerInvariant(),
+        produces = new[] { "application/json" },
+        paths = new
+        {
+          resourcePath =
+          new
+          {
+          // todo: could be another verb like "POST"
+            get =
+            new
+          {
+            summary = resourceName,
+            description = resourceName/*,
+            parameters = new Parameter[]*/
+          }
+          }
+        },
+        path = new[]
+                {
+                    new
+                    {
+                        part_no = "A4786",
+                        descrip = "Water Bucket (Filled)",
+                        price = 1.47M,
+                        quantity = 4
+                    },
+                    new
+                    {
+                        part_no = "E1628",
+                        descrip = "High Heeled \"Ruby\" Slippers",
+                        price = 100.27M,
+                        quantity = 1
+                    }
+                },
+        //bill_to = address,
+        //ship_to = address,
+        specialDelivery = "Follow the Yellow Brick\n" +
+                  "Road to the Emerald City.\n" +
+                  "Pay no attention to the\n" +
+                  "man behind the curtain."
+      };
+
+
+
+      string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
+
+
+      var serializer = new Serializer();
+      StringWriter sw = new StringWriter();
+      serializer.Serialize(sw, swagger);
+      richTextBoxOuput.Text = sw.ToString().Replace("resourcePath",path);
+    }
+
+    private void BtnSwagger(object sender, EventArgs e)
+    {
+      // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
+      // #.0.0 is required format
       this.richTextBoxOuput.Text = @"swagger: '2.0'
 info:
   title: Plex Connect Engineering API
@@ -265,5 +344,6 @@ definitions:
     {
 
     }
+
   }
 }
