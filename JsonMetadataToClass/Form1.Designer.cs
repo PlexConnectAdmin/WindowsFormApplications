@@ -32,7 +32,6 @@
       this.buttonGenerate = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.textNameSpace = new System.Windows.Forms.TextBox();
-      this.button1 = new System.Windows.Forms.Button();
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.richTextBoxInput = new System.Windows.Forms.RichTextBox();
@@ -46,7 +45,7 @@
       // 
       // buttonGenerate
       // 
-      this.buttonGenerate.Location = new System.Drawing.Point(25, 516);
+      this.buttonGenerate.Location = new System.Drawing.Point(165, 513);
       this.buttonGenerate.Name = "buttonGenerate";
       this.buttonGenerate.Size = new System.Drawing.Size(107, 23);
       this.buttonGenerate.TabIndex = 2;
@@ -57,7 +56,7 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(148, 525);
+      this.label1.Location = new System.Drawing.Point(313, 524);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(77, 13);
       this.label1.TabIndex = 3;
@@ -65,20 +64,10 @@
       // 
       // textNameSpace
       // 
-      this.textNameSpace.Location = new System.Drawing.Point(232, 517);
+      this.textNameSpace.Location = new System.Drawing.Point(397, 516);
       this.textNameSpace.Name = "textNameSpace";
       this.textNameSpace.Size = new System.Drawing.Size(203, 20);
       this.textNameSpace.TabIndex = 4;
-      // 
-      // button1
-      // 
-      this.button1.Location = new System.Drawing.Point(25, 545);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(107, 23);
-      this.button1.TabIndex = 5;
-      this.button1.Text = "Generate Swagger";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.BtnSwagger);
       // 
       // label2
       // 
@@ -117,7 +106,7 @@
       // 
       // txtApplication
       // 
-      this.txtApplication.Location = new System.Drawing.Point(232, 545);
+      this.txtApplication.Location = new System.Drawing.Point(397, 546);
       this.txtApplication.Name = "txtApplication";
       this.txtApplication.Size = new System.Drawing.Size(203, 20);
       this.txtApplication.TabIndex = 12;
@@ -126,7 +115,7 @@
       // label4
       // 
       this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(148, 553);
+      this.label4.Location = new System.Drawing.Point(313, 554);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(73, 13);
       this.label4.TabIndex = 11;
@@ -134,7 +123,7 @@
       // 
       // txtVersion
       // 
-      this.txtVersion.Location = new System.Drawing.Point(533, 545);
+      this.txtVersion.Location = new System.Drawing.Point(698, 546);
       this.txtVersion.Name = "txtVersion";
       this.txtVersion.Size = new System.Drawing.Size(30, 20);
       this.txtVersion.TabIndex = 14;
@@ -144,7 +133,7 @@
       // label5
       // 
       this.label5.AutoSize = true;
-      this.label5.Location = new System.Drawing.Point(450, 553);
+      this.label5.Location = new System.Drawing.Point(615, 554);
       this.label5.Name = "label5";
       this.label5.Size = new System.Drawing.Size(62, 13);
       this.label5.TabIndex = 13;
@@ -152,11 +141,11 @@
       // 
       // btnYaml
       // 
-      this.btnYaml.Location = new System.Drawing.Point(610, 545);
+      this.btnYaml.Location = new System.Drawing.Point(25, 546);
       this.btnYaml.Name = "btnYaml";
-      this.btnYaml.Size = new System.Drawing.Size(180, 23);
+      this.btnYaml.Size = new System.Drawing.Size(247, 23);
       this.btnYaml.TabIndex = 15;
-      this.btnYaml.Text = "Generate Yaml/Swagger (pre-alpha)";
+      this.btnYaml.Text = "Generate Yaml/Swagger alpha";
       this.btnYaml.UseVisualStyleBackColor = true;
       this.btnYaml.Click += new System.EventHandler(this.btnYaml_Click);
       // 
@@ -174,7 +163,6 @@
       this.Controls.Add(this.richTextBoxInput);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
-      this.Controls.Add(this.button1);
       this.Controls.Add(this.textNameSpace);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.buttonGenerate);
@@ -191,7 +179,6 @@
     private System.Windows.Forms.Button buttonGenerate;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox textNameSpace;
-    private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.RichTextBox richTextBoxInput;

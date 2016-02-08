@@ -139,14 +139,14 @@ namespace JsonMetadataToClass
             break;
           case "short":
             jsonString += '"' + "type" + '"' + ": " + '"' + "integer" + '"' + ',';
-            jsonString += '"' + "format" + '"' + ": " + '"' + "short (Signed 16-bit integer)" + '"' + ',';
+            jsonString += '"' + "format" + '"' + ": " + '"' + "short signed 16 bit integer" + '"' + ',';
             break;
           default:
             jsonString += '"' + "type" + '"' + ": " + '"' + responseField.DataType.ToLowerInvariant() + '"' + ',';
             break;
         }
 
-        string description = responseField.Nullable ? " This field is nullable." : "This field is not nullable.";
+        string description = responseField.Nullable ? "This field is nullable." : "This field is not nullable.";
 
         if (responseField.Deprecated)
         {
@@ -197,14 +197,14 @@ namespace JsonMetadataToClass
             break;
           case "short":
             parameter.type = "integer";
-            parameter.format = "format: short (Signed 16-bit integer)";
+            parameter.format = "format: short signed 16 bit integer";
             break;
           default:
             parameter.type = requestField.DataType.ToLowerInvariant();
             break;
         }
 
-        string description = requestField.Nullable ? " This field is nullable." : "This field is not nullable.";
+        string description = requestField.Nullable ? "This field is nullable." : "This field is not nullable.";
 
         if (requestField.Deprecated)
         {
@@ -316,79 +316,6 @@ namespace JsonMetadataToClass
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", responseName.Replace(" ", string.Empty));
     }
 
-    private void BtnSwagger(object sender, EventArgs e)
-    {
-      // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
-      // #.0.0 is required format
-      this.richTextBoxOuput.Text = @"swagger: '2.0'
-info:
-  title: Plex Connect Engineering API
-  description: Pragmatic REST API for Plex Manufacturing Cloud
-  version: " + this.txtVersion.Text + @".0.0
-host: test.api.plex.com
-schemes:
-  - https
-basePath: /" + this.txtApplication.Text.ToLower();
-
-      ClassLibrary.Metadata metadata = new JavaScriptSerializer().Deserialize<Metadata>(this.richTextBoxInput.Text);
-
-      this.richTextBoxOuput.Text += @"
-produces:
-  - application/json
-paths:
-  /v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName + @":
-    " + metadata.verb.ToLower() + @":
-      summary: ";
-
-      string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
-      this.richTextBoxOuput.Text += resourceName + @"
-      description: " + resourceName + " requires bearer token authentication." + @"
-      parameters:" + GetParameterText("authorization", "header", "The authentication type of Bearer and bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`", true, "string ");
-
-      // todo: POSTs will have a different approach for body content
-      foreach (MetadataField field in metadata.requestFields)
-      {
-        this.richTextBoxOuput.Text += GetParameterText(field);
-      }
-
-      string responseName = metadata.apiResourceRouteName + "Response";
-
-      this.richTextBoxOuput.Text += @"
-      responses:
-        '200':
-          description: " + UndoPascalCase(responseName) + @"
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/" + responseName + @"'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-definitions:
-  Error:
-    type: object
-    properties:
-      code:
-        type: string
-      title:
-        type: string
-      status:
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
-  " + responseName + @":
-    type: object
-    properties:";
-
-      foreach (MetadataField field in metadata.responseFields)
-      {
-        this.richTextBoxOuput.Text += GetSchemaObjectProperty(field);
-      }
-    }
-
     /// <summary>
     /// Gets the schema object property.
     /// http://swagger.io/specification/#schemaObject
@@ -411,7 +338,7 @@ definitions:
         case "short":
           schemaObjectProperty += @"
           type: integer
-          format: short (Signed 16-bit integer)";
+          format: short signed 16 bit integer";
           break;
         default:
           schemaObjectProperty += @"
