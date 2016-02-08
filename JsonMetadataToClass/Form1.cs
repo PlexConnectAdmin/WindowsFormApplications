@@ -121,6 +121,7 @@ namespace JsonMetadataToClass
 
       ClassLibrary.Metadata metadata = new JavaScriptSerializer().Deserialize<Metadata>(this.richTextBoxInput.Text);
       string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
+      string responseName = resourceName + "Response";
 
       Parameter parameter = new Parameter();
       parameter.description = "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`";
@@ -148,11 +149,11 @@ namespace JsonMetadataToClass
         {
           case "decimal":
             parameter.type = "number";
-          parameter.format = "double";
+            parameter.format = "double";
             break;
           case "short":
             parameter.type = "integer";
-          parameter.format = "format: short (Signed 16-bit integer)";
+            parameter.format = "format: short (Signed 16-bit integer)";
             break;
           default:
             parameter.type = requestField.DataType.ToLowerInvariant();
@@ -189,8 +190,8 @@ namespace JsonMetadataToClass
         produces = new[] { "application/json" },
         paths = new
         {
-          // "A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
-          A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
+          // "pathA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+          pathA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
           new
           {
             // todo: could be another verb like "POST"
@@ -200,17 +201,95 @@ namespace JsonMetadataToClass
             summary = resourceName,
             description = resourceName
           },
-            parameters 
+            parameters,
+            responses =
+            new
+            {
+              // "responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+              responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
+              new
+              {
+                description = UndoPascalCase(resourceName) + " response.",
+                schema =
+                new
+                  {
+                    type = "array",
+                    items = new
+                    {
+                      // "refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+                      refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/" + responseName.Replace(" ", string.Empty) + "'"
+                    }
+                  }
+              },
+              @default =
+            new
+            {
+              description = "Unexpected error",
+              schema =
+                new
+                {
+                  // "refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+                  refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/Error'"
+                }
+            }
+            }
+          }
+        },
+        definitions = new
+        {
+          // "responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+          responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = new
+          {
+            type = "object",
+            properties = "properties"
+          },
+          Error = new
+          {
+            type = "object",
+            properties = new ClassLibrary.Error(){
+            code = new SwaggerPrimitiveDataType(){ type = "string"},
+            title = new SwaggerPrimitiveDataType() { type = "string" },
+            status = new SwaggerPrimitiveFormattedDataType(){type = "integer", format = "http status code"},
+            detail = new SwaggerPrimitiveDataType() { type = "string" },
+            instance = new SwaggerPrimitiveFormattedDataType() { type = "string", format = "url" }
+              //code = new
+              //{
+              //  type = "string"
+              //},
+              //title = new
+              //{
+              //  type = "string"
+              //},
+              //status = new
+              //{
+              //  type = "integer",
+              //  format = "http status code"
+              //},
+              //detail = new
+              //{
+              //  type = "string"
+              //},
+              //instance = new
+              //{
+              //  type = "string",
+              //  format = "url"
+              //}
+            }
           }
         }
       };
 
-      string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
-
       Serializer serializer = new Serializer();
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
-      richTextBoxOuput.Text = sw.ToString().Replace("A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", path);
+
+      richTextBoxOuput.Text = sw.ToString();
+
+      string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("pathA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", path);
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'200'");
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "$ref");
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", responseName.Replace(" ", string.Empty));
     }
 
     private void BtnSwagger(object sender, EventArgs e)
