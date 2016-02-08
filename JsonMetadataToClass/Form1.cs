@@ -7,11 +7,17 @@ using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using ClassLibrary;
-using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 
 namespace JsonMetadataToClass
 {
+  /// <summary>
+  /// For generating YAML, this solution includes the the [YamlDotNet](http://aaubry.net/pages/yamldotnet.html) library under the MIT License:
+  /// Copyright (c) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Antoine Aubry
+  /// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  /// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  /// </summary>
   public partial class Form1 : Form
   {
     string _apiModuleRouteName, _apiResourceRouteName, _apiActionRouteName;
@@ -116,16 +122,62 @@ namespace JsonMetadataToClass
       ClassLibrary.Metadata metadata = new JavaScriptSerializer().Deserialize<Metadata>(this.richTextBoxInput.Text);
       string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
 
-//      Parameter[] parameters = null;
+      Parameter parameter = new Parameter();
+      parameter.description = "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`";
+      parameter.@in = "header";
+      parameter.name = "Authorization";
+      parameter.required = true;
+      parameter.type = "string";
 
+      Parameter[] parameters = new Parameter[1 + metadata.requestFields.Count];
+      parameters[0] = parameter;
+
+      int index = 1;
+      foreach (MetadataField requestField in metadata.requestFields)
+      {
+        parameter = new Parameter();
+        parameter.description = UndoPascalCase(requestField.FieldName);
+        parameter.@in = "query";
+        parameter.name = requestField.FieldName;
+        parameter.required = requestField.Required;
+        parameter.type = "string";
+        parameter.format = "string";
+
+        // http://swagger.io/specification/ -> "Primitive data types in the Swagger Specification are based on the types supported by the JSON-Schema Draft 4. Models are described using the Schema Object which is a subset of JSON Schema Draft 4."
+        switch (requestField.DataType)
+        {
+          case "decimal":
+            parameter.type = "number";
+          parameter.format = "double";
+            break;
+          case "short":
+            parameter.type = "integer";
+          parameter.format = "format: short (Signed 16-bit integer)";
+            break;
+          default:
+            parameter.type = requestField.DataType.ToLowerInvariant();
+            break;
+        }
+
+        string description = requestField.Nullable ? " This field is nullable." : "This field is not nullable.";
+
+        if (requestField.Deprecated)
+        {
+          description += " This field is deprecated.";
+        }
+
+        parameter.description += description;
+
+        parameters[index++] = parameter;
+      }
 
       var swagger = new
       {
-        swagger = "2.0",
+        swagger = "'2.0'",
         info = new
         {
           title = "Plex Connect " + this.txtApplication.Text + " API",
-          description = "Pragmatic REST API for the " + this.txtApplication.Text + " application of the Plex Manufacturing Cloud",
+          description = "Pragmatic REST API for the " + this.txtApplication.Text + " application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
 
           // Just having an int version below results in Swagger Error "A semantic version number of the API / INVALID_TYPE / Expected type string but found type integer"
           // #.0.0 is required format
@@ -137,53 +189,28 @@ namespace JsonMetadataToClass
         produces = new[] { "application/json" },
         paths = new
         {
-          resourcePath =
+          // "A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+          A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
           new
           {
-          // todo: could be another verb like "POST"
+            // todo: could be another verb like "POST"
             get =
             new
           {
             summary = resourceName,
-            description = resourceName/*,
-            parameters = new Parameter[]*/
+            description = resourceName
+          },
+            parameters 
           }
-          }
-        },
-        path = new[]
-                {
-                    new
-                    {
-                        part_no = "A4786",
-                        descrip = "Water Bucket (Filled)",
-                        price = 1.47M,
-                        quantity = 4
-                    },
-                    new
-                    {
-                        part_no = "E1628",
-                        descrip = "High Heeled \"Ruby\" Slippers",
-                        price = 100.27M,
-                        quantity = 1
-                    }
-                },
-        //bill_to = address,
-        //ship_to = address,
-        specialDelivery = "Follow the Yellow Brick\n" +
-                  "Road to the Emerald City.\n" +
-                  "Pay no attention to the\n" +
-                  "man behind the curtain."
+        }
       };
-
-
 
       string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
 
-
-      var serializer = new Serializer();
+      Serializer serializer = new Serializer();
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
-      richTextBoxOuput.Text = sw.ToString().Replace("resourcePath",path);
+      richTextBoxOuput.Text = sw.ToString().Replace("A3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", path);
     }
 
     private void BtnSwagger(object sender, EventArgs e)

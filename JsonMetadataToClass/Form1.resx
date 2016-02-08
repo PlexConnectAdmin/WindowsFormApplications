@@ -119,22 +119,22 @@
   </resheader>
   <data name="richTextBoxInput.Text" xml:space="preserve">
     <value>{
-  "apiModuleRouteName": "PartList",
-  "apiResourceRouteName": "DcItems",
-  "apiActionRouteName": "GetDcItems",
+  "apiModuleRoutename": "PartList",
+  "apiResourceRoutename": "DcItems",
+  "apiActionRoutename": "GetDcItems",
   "verb": "GET",
   "requestFields": [
     {
-      "fieldName": "PartNo",
-      "dataType": "string",
+      "fieldname": "PartNo",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Revision",
-      "dataType": "string",
+      "fieldname": "Revision",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
@@ -143,208 +143,208 @@
   ],
   "responseFields": [
     {
-      "fieldName": "ApprovedSupplier",
-      "dataType": "string",
+      "fieldname": "ApprovedSupplier",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "MakeOrBuy",
-      "dataType": "string",
+      "fieldname": "MakeOrBuy",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Inventory",
-      "dataType": "decimal",
+      "fieldname": "inventory",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "AverageValue",
-      "dataType": "decimal",
+      "fieldname": "AverageValue",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "AvgPrice",
-      "dataType": "decimal",
+      "fieldname": "AvgPrice",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": true
     },
     {
-      "fieldName": "Cost",
-      "dataType": "decimal",
+      "fieldname": "Cost",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "CustomerPartExists",
-      "dataType": "short",
+      "fieldname": "CustomerPartExists",
+      "datatype": "short",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Engineer2FullName",
-      "dataType": "string",
+      "fieldname": "Engineer2Fullname",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Engineer3FullName",
-      "dataType": "string",
+      "fieldname": "Engineer3Fullname",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "EngineerFullName",
-      "dataType": "string",
+      "fieldname": "EngineerFullname",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "InventoryUnit",
-      "dataType": "string",
+      "fieldname": "inventoryUnit",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "LeadTime",
-      "dataType": "decimal",
+      "fieldname": "LeadTime",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "MinimumInventoryQuantity",
-      "dataType": "decimal",
+      "fieldname": "MinimuminventoryQuantity",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "MinimumJobQuantity",
-      "dataType": "decimal",
+      "fieldname": "MinimumJobQuantity",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "MinimumOrderQuantity",
-      "dataType": "decimal",
+      "fieldname": "MinimumOrderQuantity",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Name",
-      "dataType": "string",
+      "fieldname": "name",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PartGroup",
-      "dataType": "string",
+      "fieldname": "PartGroup",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PartNo",
-      "dataType": "string",
+      "fieldname": "PartNo",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PartProductGroup",
-      "dataType": "string",
+      "fieldname": "PartProductGroup",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PartType",
-      "dataType": "string",
+      "fieldname": "Parttype",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PlannerFullName",
-      "dataType": "string",
+      "fieldname": "PlannerFullname",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "PlanningGroup",
-      "dataType": "string",
+      "fieldname": "PlanningGroup",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "ProductType",
-      "dataType": "string",
+      "fieldname": "Producttype",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "Revision",
-      "dataType": "string",
+      "fieldname": "Revision",
+      "datatype": "string",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "StandardJobQuantity",
-      "dataType": "decimal",
+      "fieldname": "StandardJobQuantity",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,
       "nullable": false
     },
     {
-      "fieldName": "StandardOrderQuantity",
-      "dataType": "decimal",
+      "fieldname": "StandardOrderQuantity",
+      "datatype": "decimal",
       "required": false,
       "identity": false,
       "deprecated": false,

@@ -2,10 +2,11 @@
 {
   public class Parameter
   {
-  public string Name { get; set; }
-  public string In { get; set; }
-  public string Description { get; set; }
-  public bool Required { get; set; }
-  public string Type { get; set; }
+    public string name { get; set; }
+    public string @in { get; set; }
+    public string description { get; set; }
+    public bool required { get; set; }
+    public string type { get; set; }
+    public string format { get; set; }
   }
 }

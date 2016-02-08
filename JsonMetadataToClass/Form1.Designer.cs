@@ -3,7 +3,7 @@
   partial class Form1
   {
     /// <summary>
-    /// Required designer variable.
+    /// required designer variable.
     /// </summary>
     private System.ComponentModel.IContainer components = null;
 
@@ -23,7 +23,7 @@
     #region Windows Form Designer generated code
 
     /// <summary>
-    /// Required method for Designer support - do not modify
+    /// required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent()
@@ -154,9 +154,9 @@
       // 
       this.btnYaml.Location = new System.Drawing.Point(610, 545);
       this.btnYaml.Name = "btnYaml";
-      this.btnYaml.Size = new System.Drawing.Size(107, 23);
+      this.btnYaml.Size = new System.Drawing.Size(180, 23);
       this.btnYaml.TabIndex = 15;
-      this.btnYaml.Text = "Generate Swagger";
+      this.btnYaml.Text = "Generate Yaml/Swagger (pre-alpha)";
       this.btnYaml.UseVisualStyleBackColor = true;
       this.btnYaml.Click += new System.EventHandler(this.btnYaml_Click);
       // 
