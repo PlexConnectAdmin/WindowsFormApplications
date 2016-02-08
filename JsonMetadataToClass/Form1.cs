@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -123,6 +124,49 @@ namespace JsonMetadataToClass
       string resourceName = UndoPascalCase(metadata.apiResourceRouteName.TrimStart(metadata.verb.ToCharArray()));
       string responseName = resourceName + "Response";
 
+      string jsonString = "{";
+      int index = 1;
+      foreach (MetadataField responseField in metadata.responseFields)
+      {
+        jsonString += '"' + responseField.FieldName + '"' + ": {";
+
+        // http://swagger.io/specification/ -> "Primitive data types in the Swagger Specification are based on the types supported by the JSON-Schema Draft 4. Models are described using the Schema Object which is a subset of JSON Schema Draft 4."
+        switch (responseField.DataType)
+        {
+          case "decimal":
+            jsonString += '"' + "type" + '"' + ": " + '"' + "number" + '"' + ',';
+            jsonString += '"' + "format" + '"' + ": " + '"' + "double" + '"' + ',';
+            break;
+          case "short":
+            jsonString += '"' + "type" + '"' + ": " + '"' + "integer" + '"' + ',';
+            jsonString += '"' + "format" + '"' + ": " + '"' + "short (Signed 16-bit integer)" + '"' + ',';
+            break;
+          default:
+            jsonString += '"' + "type" + '"' + ": " + '"' + responseField.DataType.ToLowerInvariant() + '"' + ',';
+            break;
+        }
+
+        string description = responseField.Nullable ? " This field is nullable." : "This field is not nullable.";
+
+        if (responseField.Deprecated)
+        {
+          description += " This field is deprecated.";
+        }
+
+        jsonString += '"' + "description" + '"' + ": " + '"' + description + '"' + "}";
+
+        if (index++ < metadata.responseFields.Count)
+        {
+          jsonString += ",";
+        }
+      }
+      jsonString += "}";
+
+      var javaScriptSerializer = new JavaScriptSerializer();
+      //javaScriptSerializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+      dynamic responseData = javaScriptSerializer.Deserialize(jsonString, typeof(object));
+      //SwaggerPrimitiveFormattedDataType[] responseProperties = new SwaggerPrimitiveFormattedDataType[metadata.responseFields.Count];
+
       Parameter parameter = new Parameter();
       parameter.description = "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`";
       parameter.@in = "header";
@@ -133,7 +177,7 @@ namespace JsonMetadataToClass
       Parameter[] parameters = new Parameter[1 + metadata.requestFields.Count];
       parameters[0] = parameter;
 
-      int index = 1;
+      index = 1;
       foreach (MetadataField requestField in metadata.requestFields)
       {
         parameter = new Parameter();
@@ -199,8 +243,7 @@ namespace JsonMetadataToClass
             new
           {
             summary = resourceName,
-            description = resourceName
-          },
+            description = resourceName,
             parameters,
             responses =
             new
@@ -234,6 +277,7 @@ namespace JsonMetadataToClass
             }
             }
           }
+          }
         },
         definitions = new
         {
@@ -241,39 +285,18 @@ namespace JsonMetadataToClass
           responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = new
           {
             type = "object",
-            properties = "properties"
+            properties = responseData
           },
           Error = new
           {
             type = "object",
-            properties = new ClassLibrary.Error(){
-            code = new SwaggerPrimitiveDataType(){ type = "string"},
-            title = new SwaggerPrimitiveDataType() { type = "string" },
-            status = new SwaggerPrimitiveFormattedDataType(){type = "integer", format = "http status code"},
-            detail = new SwaggerPrimitiveDataType() { type = "string" },
-            instance = new SwaggerPrimitiveFormattedDataType() { type = "string", format = "url" }
-              //code = new
-              //{
-              //  type = "string"
-              //},
-              //title = new
-              //{
-              //  type = "string"
-              //},
-              //status = new
-              //{
-              //  type = "integer",
-              //  format = "http status code"
-              //},
-              //detail = new
-              //{
-              //  type = "string"
-              //},
-              //instance = new
-              //{
-              //  type = "string",
-              //  format = "url"
-              //}
+            properties = new ClassLibrary.Error()
+            {
+              code = new SwaggerPrimitiveDataType() { type = "string" },
+              title = new SwaggerPrimitiveDataType() { type = "string" },
+              status = new SwaggerPrimitiveFormattedDataType() { type = "integer", format = "http status code" },
+              detail = new SwaggerPrimitiveDataType() { type = "string" },
+              instance = new SwaggerPrimitiveFormattedDataType() { type = "string", format = "url" }
             }
           }
         }
@@ -283,6 +306,7 @@ namespace JsonMetadataToClass
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
 
+      //richTextBoxOuput.Text = jsonString;//sw.ToString();
       richTextBoxOuput.Text = sw.ToString();
 
       string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
