@@ -149,9 +149,7 @@ namespace JsonMetadataToClass
       jsonString += "}";
 
       var javaScriptSerializer = new JavaScriptSerializer();
-      //javaScriptSerializer.RegisterConverters(new[] { new DynamicJsonConverter() });
       dynamic responseData = javaScriptSerializer.Deserialize(jsonString, typeof(object));
-      //SwaggerPrimitiveFormattedDataType[] responseProperties = new SwaggerPrimitiveFormattedDataType[metadata.responseFields.Count];
 
       Parameter parameter = new Parameter();
       parameter.description = "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`";
@@ -171,33 +169,15 @@ namespace JsonMetadataToClass
         parameter.@in = "query";
         parameter.name = requestField.FieldName;
         parameter.required = requestField.Required;
-        parameter.type = "string";
-        parameter.format = "string";
 
-        // http://swagger.io/specification/ -> "Primitive data types in the Swagger Specification are based on the types supported by the JSON-Schema Draft 4. Models are described using the Schema Object which is a subset of JSON Schema Draft 4."
-        switch (requestField.DataType)
+        SwaggerPrimitve swaggerPrimitve = new SwaggerPrimitve(requestField);
+        parameter.description = swaggerPrimitve.Description;
+        parameter.type = swaggerPrimitve.Type;
+
+        if (string.IsNullOrEmpty(swaggerPrimitve.Format) == false)
         {
-          case "decimal":
-            parameter.type = "number";
-            parameter.format = "double";
-            break;
-          case "short":
-            parameter.type = "integer";
-            parameter.format = "format: short signed 16 bit integer";
-            break;
-          default:
-            parameter.type = requestField.DataType.ToLowerInvariant();
-            break;
+          parameter.format = swaggerPrimitve.Format;
         }
-
-        string description = requestField.Nullable ? "This field is nullable." : "This field is not nullable.";
-
-        if (requestField.Deprecated)
-        {
-          description += " This field is deprecated.";
-        }
-
-        parameter.description += description;
 
         parameters[index++] = parameter;
       }

@@ -5,57 +5,149 @@ info:
   version: 1.0.0
 host: test.api.plex.com
 schemes:
-- https
+  - https
 basePath: /engineering
 produces:
-- application/json
+  - application/json
 paths:
-  /v1/JobTrackingSystem/DcJobs:
+  /v1/PartList/DcItemAverageValues:
     get:
-      summary: Dc Jobs
-      description: Dc Jobs
+      summary: Dc Item Average Values
+      description: Dc Item Average Values
       parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+        - name: PartNo
+          in: query
+          description: Part NoThis field is not nullable.
+          type: string
+          format: string
+        - name: Revision
+          in: query
+          description: RevisionThis field is not nullable.
+          type: string
+          format: string
       responses:
         '200':
-          description: Dc Jobs response.
+          description: Dc Item Average Values response.
           schema:
             type: array
             items:
-              $ref: '#/definitions/DcJobsResponse'
+              $ref: '#/definitions/DcItemAverageValuesResponse'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /v1/JobTrackingSystem/DcJobs:
+  /v1/PartList/DcItemOperations:
     get:
-      summary: Dc Jobs
-      description: Dc Jobs
+      summary: Dc Item Operations
+      description: Dc Item Operations
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+        - name: PartNo
+          in: query
+          description: Part NoThis field is not nullable.
+          type: string
+          format: string
+        - name: Revision
+          in: query
+          description: RevisionThis field is not nullable.
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Dc Item Operations response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DcItemOperationsResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/PartList/DcItems:
+    get:
+      summary: Dc Items
+      description: Dc Items
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+        - name: PartNo
+          in: query
+          description: Part NoThis field is not nullable.
+          type: string
+          format: string
+        - name: Revision
+          in: query
+          description: RevisionThis field is not nullable.
+          type: string
+          format: string
+      responses:
+        '200':
+          description: Dc Items response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DcItemsResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/JobTrackingSystem/DcJobsByDate:
+    get:
+      summary: Dc Jobs By Date
+      description: Dc Jobs By Date
       parameters:
       - name: Authorization
         in: header
         description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
         required: true
         type: string
+      - name: FromDate
+        in: query
+        description: This field is not nullable.
+        required: true
+        type: string
+        format: System.DateTime
+      - name: ToDate
+        in: query
+        description: This field is not nullable.
+        required: true
+        type: string
+        format: System.DateTime
       responses:
         '200':
-          description: Dc Jobs response.
+          description: Dc Jobs By Date response.
           schema:
             type: array
             items:
-              $ref: '#/definitions/DcJobsResponse'
+              $ref: '#/definitions/DcJobsByDateResponse'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 definitions:
-  DcJobsResponse:
+  DcJobsByDateResponse:
     type: object
     properties:
+      AddDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      CompletedDate:
+        type: string
+        description: This property is nullable.
+        format: System.DateTime
       DueDate:
         type: string
         description: This field is not nullable.
@@ -63,14 +155,6 @@ definitions:
       JobNo:
         type: string
         description: This field is not nullable.
-      LeadTime:
-        type: number
-        description: This property is nullable.
-        format: double
-      OpNo:
-        type: number
-        description: This field is not nullable.
-        format: double
       PartNo:
         type: string
         description: This field is not nullable.
@@ -78,63 +162,163 @@ definitions:
         type: number
         description: This property is nullable.
         format: double
-      Rate:
+      Quantity:
         type: number
         description: This field is not nullable.
         format: double
       Revision:
         type: string
         description: This field is not nullable.
-      SetupTime:
-        type: number
-        description: This property is nullable.
-        format: double
       Status:
         type: string
         description: This field is not nullable.
-      WorkcenterCode:
-        type: string
-        description: This field is not nullable.
-  DcJobsResponse:
+  DcItemsResponse:
     type: object
     properties:
-      DueDate:
+      ApprovedSupplier:
         type: string
         description: This field is not nullable.
-        format: System.DateTime
-      JobNo:
+      MakeOrBuy:
+        type: string
+        description: This field is not nullable.
+      Inventory:
+        type: number
+        description: This field is not nullable.
+        format: double
+      AverageValue:
+        type: number
+        description: This field is not nullable.
+        format: double
+      AvgPrice:
+        type: number
+        description: This field is nullable.
+        format: double
+      Cost:
+        type: number
+        description: This field is not nullable.
+        format: double
+      CustomerPartExists:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 16-bit integer
+      Engineer2FullName:
+        type: string
+        description: This field is not nullable.
+      Engineer3FullName:
+        type: string
+        description: This field is not nullable.
+      EngineerFullName:
+        type: string
+        description: This field is not nullable.
+      InventoryUnit:
         type: string
         description: This field is not nullable.
       LeadTime:
         type: number
-        description: This property is nullable.
+        description: This field is not nullable.
         format: double
-      OpNo:
+      MinimumInventoryQuantity:
         type: number
         description: This field is not nullable.
         format: double
+      MinimumJobQuantity:
+        type: number
+        description: This field is not nullable.
+        format: double
+      MinimumOrderQuantity:
+        type: number
+        description: This field is not nullable.
+        format: double
+      Name:
+        type: string
+        description: This field is not nullable.
+      PartGroup:
+        type: string
+        description: This field is not nullable.
       PartNo:
         type: string
         description: This field is not nullable.
-      Production:
-        type: number
-        description: This property is nullable.
-        format: double
-      Rate:
-        type: number
+      PartProductGroup:
+        type: string
         description: This field is not nullable.
-        format: double
+      PartType:
+        type: string
+        description: This field is not nullable.
+      PlannerFullName:
+        type: string
+        description: This field is not nullable.
+      PlanningGroup:
+        type: string
+        description: This field is not nullable.
+      ProductType:
+        type: string
+        description: This field is not nullable.
       Revision:
         type: string
         description: This field is not nullable.
-      SetupTime:
+      StandardJobQuantity:
         type: number
-        description: This property is nullable.
+        description: This field is not nullable.
         format: double
-      Status:
+      StandardOrderQuantity:
+        type: number
+        description: This field is not nullable.
+        format: double
+  DcItemOperationsResponse:
+    type: object
+    properties:
+      LeadTime:
+        type: number
+        description: This field is not nullable.
+        format: double
+      OperationCode:
         type: string
         description: This field is not nullable.
+      OperationNo:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      PartNo:
+        type: string
+        description: This field is not nullable.
+      Revision:
+        type: string
+        description: This field is not nullable.
+      RunTime:
+        type: number
+        description: This field is not nullable.
+        format: double
+      SetupTime:
+        type: number
+        description: This field is not nullable.
+        format: double
       WorkcenterCode:
+        type: string
+        description: This field is not nullable.
+  DcItemAverageValuesResponse:
+    type: object
+    properties:
+      AveragePrice:
+        type: number
+        description: This field is nullable.
+        format: double
+      CustomerCode:
+        type: string
+        description: This field is not nullable.
+      CustomerPartNo:
+        type: string
+        description: This field is not nullable.
+      CustomerPartRevision:
+        type: string
+        description: This field is not nullable.
+      PartKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      PartNo:
+        type: string
+        description: This field is not nullable.
+      Revision:
         type: string
         description: This field is not nullable.
   Error:
