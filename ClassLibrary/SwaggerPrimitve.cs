@@ -9,6 +9,9 @@
     {
       switch (metadataField.DataType)
       {
+        case "bool":
+          this.Type = "boolean";
+          break;
         case "decimal":
           this.Type = "number";
           this.Format = "double";

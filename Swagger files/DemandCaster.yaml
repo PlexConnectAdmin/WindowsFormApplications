@@ -55,7 +55,7 @@ paths:
           in: query
           description: Part NoThis field is not nullable.
           type: string
-          format: string
+          format: stringDcJobsByDate
         - name: Revision
           in: query
           description: RevisionThis field is not nullable.
@@ -136,7 +136,188 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /v1/WorkcenterList/DcWorkcenters:
+    get:
+      summary: Dc Workcenters
+      description: Dc Workcenters
+      parameters:
+      - name: Authorization
+        in: header
+        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Dc Workcenters response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DcWorkcentersResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/CustomerOrdersandReleases/DcSalesOrderReleases:
+    get:
+      summary: Dc Sales Order Releases
+      description: Dc Sales Order Releases
+      parameters:
+      - name: Authorization
+        in: header
+        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+        required: true
+        type: string
+      - name: AddDateEnd
+        in: query
+        description: This field is not nullable.
+        required: true
+        type: string
+        format: System.DateTime
+      - name: AddDateStart
+        in: query
+        description: This field is not nullable.
+        required: true
+        type: string
+        format: System.DateTime
+      responses:
+        '200':
+          description: Dc Sales Order Releases response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DcSalesOrderReleasesResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
+  DcSalesOrderReleasesResponse:
+    type: object
+    properties:
+      Active:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 16-bit integer
+      AddDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      AllowShip:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 16-bit integer
+      CancelledStatus:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 16-bit integer
+      Cost:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      CustomerCode:
+        type: string
+        description: This field is not nullable.
+      CustomerName:
+        type: string
+        description: This field is not nullable.
+      CustomerNo:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      DueDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      FullyShipped:
+        type: boolean
+        description: This field is not nullable.
+      ItemCode:
+        type: string
+        description: This field is not nullable.
+      LineNo:
+        type: string
+        description: This field is not nullable.
+      Location:
+        type: string
+        description: This field is not nullable.
+      OrderDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      OrderNumber:
+        type: string
+        description: This field is not nullable.
+      OrderQuantity:
+        type: number
+        description: This field is not nullable.
+        format: double
+      PartKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      PartNo:
+        type: string
+        description: This field is not nullable.
+      POLineKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      QuantityShipped:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      ReleaseKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      ReleaseNo:
+        type: string
+        description: This field is not nullable.
+      ReleaseShipDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      ReleaseStatus:
+        type: string
+        description: This field is not nullable.
+      ReleaseStatusKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      ReleaseType:
+        type: string
+        description: This field is not nullable.
+      ReleaseTypeKey:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      Revision:
+        type: string
+        description: This field is not nullable.
+      SalesPrice:
+        type: number
+        description: This field is not nullable.
+        format: double
+      ShipDate:
+        type: string
+        description: This field is not nullable.
+        format: System.DateTime
+      ShippedStatus:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 16-bit integer
+      Status:
+        type: string
+        description: This field is not nullable.
+  DcWorkcentersResponse:
+    type: object
+    properties:
+      WorkcenterCode:
+        type: string
+        description: This field is not nullable.
+      WorkcenterName:
+        type: string
+        description: This field is not nullable.
   DcJobsByDateResponse:
     type: object
     properties:
