@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-      this.buttonGenerate = new System.Windows.Forms.Button();
+      this.buttonGenerateCSharp = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.textNameSpace = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
@@ -43,15 +43,15 @@
       this.btnYaml = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
-      // buttonGenerate
+      // buttonGenerateCSharp
       // 
-      this.buttonGenerate.Location = new System.Drawing.Point(165, 513);
-      this.buttonGenerate.Name = "buttonGenerate";
-      this.buttonGenerate.Size = new System.Drawing.Size(107, 23);
-      this.buttonGenerate.TabIndex = 2;
-      this.buttonGenerate.Text = "Generate C#";
-      this.buttonGenerate.UseVisualStyleBackColor = true;
-      this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
+      this.buttonGenerateCSharp.Location = new System.Drawing.Point(165, 513);
+      this.buttonGenerateCSharp.Name = "buttonGenerateCSharp";
+      this.buttonGenerateCSharp.Size = new System.Drawing.Size(107, 23);
+      this.buttonGenerateCSharp.TabIndex = 2;
+      this.buttonGenerateCSharp.Text = "Generate C#";
+      this.buttonGenerateCSharp.UseVisualStyleBackColor = true;
+      this.buttonGenerateCSharp.Click += new System.EventHandler(this.buttonGenerateCSharpClass_Click);
       // 
       // label1
       // 
@@ -94,6 +94,7 @@
       this.richTextBoxInput.Size = new System.Drawing.Size(323, 462);
       this.richTextBoxInput.TabIndex = 9;
       this.richTextBoxInput.Text = resources.GetString("richTextBoxInput.Text");
+      this.richTextBoxInput.TextChanged += new System.EventHandler(this.richTextBoxInput_TextChanged);
       // 
       // richTextBoxOuput
       // 
@@ -165,7 +166,7 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.textNameSpace);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.buttonGenerate);
+      this.Controls.Add(this.buttonGenerateCSharp);
       this.Name = "Form1";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.Form1_Load);
@@ -176,7 +177,7 @@
 
     #endregion
 
-    private System.Windows.Forms.Button buttonGenerate;
+    private System.Windows.Forms.Button buttonGenerateCSharp;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox textNameSpace;
     private System.Windows.Forms.Label label2;

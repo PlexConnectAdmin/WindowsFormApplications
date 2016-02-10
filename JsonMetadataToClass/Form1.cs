@@ -29,7 +29,7 @@ namespace JsonMetadataToClass
     }
 
     /// <summary>
-    /// Undoes the pascal case.
+    /// Undoes the Pascal case.
     /// http://stackoverflow.com/questions/323314/best-way-to-convert-pascal-case-to-a-sentence
     /// </summary>
     /// <param name="pascalCase">The Pascal case.</param>
@@ -39,7 +39,7 @@ namespace JsonMetadataToClass
       return Regex.Replace(pascalCase, "(\\B[A-Z])", " $1");
     }
 
-    private void buttonGenerate_Click(object sender, EventArgs e)
+    private void buttonGenerateCSharpClass_Click(object sender, EventArgs e)
     {
       var jsonString = this.richTextBoxInput.Text;
       dynamic jsonInput = JToken.Parse(jsonString);
@@ -53,7 +53,7 @@ namespace JsonMetadataToClass
 
       List<MetadataField> fieldsList = CreateFieldsList(requestFields);
 
-      this.richTextBoxOuput.Text = "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
+      this.richTextBoxOuput.Text = "namespace " + this.textNameSpace.Text + ".Requests";
       this.richTextBoxOuput.Text += Environment.NewLine + "{" + Environment.NewLine;
       this.richTextBoxOuput.Text += "  public class " + this._apiActionRouteName + "Request";
       this.richTextBoxOuput.Text += Environment.NewLine + "  {";
@@ -67,7 +67,7 @@ namespace JsonMetadataToClass
       JArray responseFields = (JArray)jsonInput.responseFields;
       fieldsList = CreateFieldsList(responseFields);
 
-      this.richTextBoxOuput.Text += "namespace " + this.textNameSpace.Text + "." + this._apiModuleRouteName + "." + this._apiResourceRouteName;
+      this.richTextBoxOuput.Text += "namespace " + this.textNameSpace.Text + ".Responses";
       this.richTextBoxOuput.Text += Environment.NewLine + "{" + Environment.NewLine;
       this.richTextBoxOuput.Text += "  public class " + this._apiActionRouteName + "Response";
       this.richTextBoxOuput.Text += Environment.NewLine + "  {";
@@ -89,10 +89,11 @@ namespace JsonMetadataToClass
         {
           string dataType = field.DataType;
 
-          if (field.Nullable)
+          if ((field.Nullable) && (dataType != "string"))
           {
             dataType += "?";
           }
+
           this.richTextBoxOuput.Text += Environment.NewLine + "    public " + dataType + " " + field.FieldName + " { get; set; }";
         }
       }
@@ -398,6 +399,11 @@ namespace JsonMetadataToClass
     }
 
     private void textBox2_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void richTextBoxInput_TextChanged(object sender, EventArgs e)
     {
 
     }
