@@ -146,7 +146,7 @@
       this.btnYaml.Name = "btnYaml";
       this.btnYaml.Size = new System.Drawing.Size(247, 23);
       this.btnYaml.TabIndex = 15;
-      this.btnYaml.Text = "Generate Yaml/Swagger alpha";
+      this.btnYaml.Text = "Generate Yaml/Swagger beta";
       this.btnYaml.UseVisualStyleBackColor = true;
       this.btnYaml.Click += new System.EventHandler(this.btnYaml_Click);
       // 
