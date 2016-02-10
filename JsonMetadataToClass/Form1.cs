@@ -117,6 +117,12 @@ namespace JsonMetadataToClass
         }).ToList();
     }
 
+    /// <summary>
+    /// Handles the Click event of the btnYaml control.
+    /// The beta version of Swagger generation only supports GET method calls to resources
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     private void btnYaml_Click(object sender, EventArgs e)
     {
 
@@ -139,7 +145,7 @@ namespace JsonMetadataToClass
           jsonString += "," + '"' + "format" + '"' + ": " + '"' + swaggerPrimitve.Format + '"';
         }
 
-        jsonString +=  "}";
+        jsonString += "}";
 
         if (index++ < metadata.responseFields.Count)
         {
