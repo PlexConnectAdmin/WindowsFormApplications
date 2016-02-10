@@ -29,14 +29,14 @@
                     {
                         "name": "PartNo",
                         "in": "query",
-                        "description": "Part NoThis field is not nullable.",
+                        "description": "Part NoThis property is not nullable.",
                         "type": "string",
                         "format": "string"
                     },
                     {
                         "name": "Revision",
                         "in": "query",
-                        "description": "RevisionThis field is not nullable.",
+                        "description": "RevisionThis property is not nullable.",
                         "type": "string",
                         "format": "string"
                     }
@@ -75,14 +75,14 @@
                     {
                         "name": "PartNo",
                         "in": "query",
-                        "description": "Part NoThis field is not nullable.",
+                        "description": "Part NoThis property is not nullable.",
                         "type": "string",
                         "format": "stringDcJobsByDate"
                     },
                     {
                         "name": "Revision",
                         "in": "query",
-                        "description": "RevisionThis field is not nullable.",
+                        "description": "RevisionThis property is not nullable.",
                         "type": "string",
                         "format": "string"
                     }
@@ -121,14 +121,14 @@
                     {
                         "name": "PartNo",
                         "in": "query",
-                        "description": "Part NoThis field is not nullable.",
+                        "description": "Part NoThis property is not nullable.",
                         "type": "string",
                         "format": "string"
                     },
                     {
                         "name": "Revision",
                         "in": "query",
-                        "description": "RevisionThis field is not nullable.",
+                        "description": "RevisionThis property is not nullable.",
                         "type": "string",
                         "format": "string"
                     }
@@ -167,7 +167,7 @@
                     {
                         "name": "FromDate",
                         "in": "query",
-                        "description": "This field is not nullable.",
+                        "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
                         "format": "System.DateTime"
@@ -175,7 +175,7 @@
                     {
                         "name": "ToDate",
                         "in": "query",
-                        "description": "This field is not nullable.",
+                        "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
                         "format": "System.DateTime"
@@ -247,7 +247,7 @@
                     {
                         "name": "AddDateEnd",
                         "in": "query",
-                        "description": "This field is not nullable.",
+                        "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
                         "format": "System.DateTime"
@@ -255,7 +255,7 @@
                     {
                         "name": "AddDateStart",
                         "in": "query",
-                        "description": "This field is not nullable.",
+                        "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
                         "format": "System.DateTime"
@@ -287,150 +287,150 @@
             "properties": {
                 "Active": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 16-bit integer"
                 },
                 "AddDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "AllowShip": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 16-bit integer"
                 },
                 "CancelledStatus": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 16-bit integer"
                 },
                 "Cost": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "CustomerCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerNo": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "DueDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "FullyShipped": {
                     "type": "boolean",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "ItemCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "LineNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Location": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "OrderDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "OrderNumber": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "OrderQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "PartKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "PartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "POLineKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "QuantityShipped": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "ReleaseKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "ReleaseNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "ReleaseShipDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "ReleaseStatus": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "ReleaseStatusKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "ReleaseType": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "ReleaseTypeKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "Revision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "SalesPrice": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "ShipDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "ShippedStatus": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 16-bit integer"
                 },
                 "Status": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 }
             }
         },
@@ -439,11 +439,11 @@
             "properties": {
                 "WorkcenterCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "WorkcenterName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 }
             }
         },
@@ -452,7 +452,7 @@
             "properties": {
                 "AddDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "CompletedDate": {
@@ -462,16 +462,16 @@
                 },
                 "DueDate": {
                     "type": "string",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "System.DateTime"
                 },
                 "JobNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Production": {
                     "type": "number",
@@ -480,16 +480,16 @@
                 },
                 "Quantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "Revision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Status": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 }
             }
         },
@@ -498,117 +498,117 @@
             "properties": {
                 "ApprovedSupplier": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "MakeOrBuy": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Inventory": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "AverageValue": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "AvgPrice": {
                     "type": "number",
-                    "description": "This field is nullable.",
+                    "description": "This property is nullable.",
                     "format": "double"
                 },
                 "Cost": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "CustomerPartExists": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 16-bit integer"
                 },
                 "Engineer2FullName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Engineer3FullName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "EngineerFullName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "InventoryUnit": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "LeadTime": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "MinimumInventoryQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "MinimumJobQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "MinimumOrderQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "Name": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartGroup": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartProductGroup": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartType": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PlannerFullName": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PlanningGroup": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "ProductType": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Revision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "StandardJobQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "StandardOrderQuantity": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 }
             }
@@ -618,39 +618,39 @@
             "properties": {
                 "LeadTime": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "OperationCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "OperationNo": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "PartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Revision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "RunTime": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "SetupTime": {
                     "type": "number",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "double"
                 },
                 "WorkcenterCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 }
             }
         },
@@ -659,33 +659,33 @@
             "properties": {
                 "AveragePrice": {
                     "type": "number",
-                    "description": "This field is nullable.",
+                    "description": "This property is nullable.",
                     "format": "double"
                 },
                 "CustomerCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerPartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerPartRevision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "PartKey": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "PartNo": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Revision": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 }
             }
         },

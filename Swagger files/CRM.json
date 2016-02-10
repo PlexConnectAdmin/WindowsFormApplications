@@ -53,36 +53,36 @@
             "properties": {
                 "BusinessType": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerCategory": {
                     "type": "string",
-                    "description": "This field is nullable."
+                    "description": "This property is nullable."
                 },
                 "CustomerClass": {
                     "type": "string",
-                    "description": "This field is nullable."
+                    "description": "This property is nullable."
                 },
                 "CustomerCode": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "CustomerNo": {
                     "type": "integer",
-                    "description": "This field is not nullable.",
+                    "description": "This property is not nullable.",
                     "format": "Signed 32-bit integer"
                 },
                 "CustomerType": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Name": {
                     "type": "string",
-                    "description": "This field is not nullable."
+                    "description": "This property is not nullable."
                 },
                 "Region": {
                     "type": "string",
-                    "description": "This field is nullable."
+                    "description": "This property is nullable."
                 }
             }
         },

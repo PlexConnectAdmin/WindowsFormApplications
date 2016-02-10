@@ -318,11 +318,11 @@ namespace JsonMetadataToClass
           break;
       }
 
-      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
+      string description = field.Nullable ? "This property is nullable." : "This property is not nullable.";
 
       if (field.Deprecated)
       {
-        description += " This field is deprecated.";
+        description += " This property is deprecated.";
       }
 
       schemaObjectProperty += @"
@@ -355,11 +355,11 @@ namespace JsonMetadataToClass
 
     private static string GetParameterText(MetadataField field)
     {
-      string description = field.Nullable ? "This field is nullable." : "This field is not nullable.";
+      string description = field.Nullable ? "This property is nullable." : "This property is not nullable.";
 
       if (field.Deprecated)
       {
-        description += " This field is deprecated.";
+        description += " This property is deprecated.";
       }
 
       return GetParameterText(field.FieldName, "query", description, field.Required, field.DataType);

@@ -36,7 +36,7 @@
           break;
       }
 
-      this.Description = metadataField.Nullable ? "This property is nullable." : "This field is not nullable.";
+      this.Description = metadataField.Nullable ? "This property is nullable." : "This property is not nullable.";
 
       if (metadataField.Deprecated)
       {
