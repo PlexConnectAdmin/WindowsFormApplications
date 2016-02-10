@@ -141,35 +141,6 @@ namespace JsonMetadataToClass
 
         jsonString +=  "}";
 
-        //// http://swagger.io/specification/ -> "Primitive data types in the Swagger Specification are based on the types supported by the JSON-Schema Draft 4. Models are described using the Schema Object which is a subset of JSON Schema Draft 4."
-        //switch (responseField.DataType)
-        //{
-        //  case "decimal":
-        //    jsonString += '"' + "type" + '"' + ": " + '"' + "number" + '"' + ',';
-        //    jsonString += '"' + "format" + '"' + ": " + '"' + "double" + '"' + ',';
-        //    break;
-        //  case "short":
-        //    jsonString += '"' + "type" + '"' + ": " + '"' + "integer" + '"' + ',';
-        //    jsonString += '"' + "format" + '"' + ": " + '"' + "Signed 16-bit integer" + '"' + ',';
-        //    break;
-        //  case "int":
-        //    jsonString += '"' + "type" + '"' + ": " + '"' + "integer" + '"' + ',';
-        //    jsonString += '"' + "format" + '"' + ": " + '"' + "Signed 32-bit integer" + '"' + ',';
-        //    break;
-        //  default:
-        //    jsonString += '"' + "type" + '"' + ": " + '"' + responseField.DataType.ToLowerInvariant() + '"' + ',';
-        //    break;
-        //}
-
-        //string description = responseField.Nullable ? "This field is nullable." : "This field is not nullable.";
-
-        //if (responseField.Deprecated)
-        //{
-        //  description += " This field is deprecated.";
-        //}
-
-        //jsonString += '"' + "description" + '"' + ": " + '"' + description + '"' + "}";
-
         if (index++ < metadata.responseFields.Count)
         {
           jsonString += ",";

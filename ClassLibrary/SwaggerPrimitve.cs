@@ -21,16 +21,23 @@
           this.Type = "integer";
           this.Format = "Signed 32-bit integer";
           break;
+          // the Swagger spec at http://swagger.io/specification/ supports formats "full-date" and "date-time" 
+          // as defined by date-time - RFC3339 http://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
+          // So, we are being rather informal here
+        case "System.DateTime":
+          this.Type = "string";
+          this.Format = "System.DateTime";
+          break;
         default:
           this.Type = metadataField.DataType.ToLowerInvariant();
           break;
       }
 
-      this.Description = metadataField.Nullable ? "This field is nullable." : "This field is not nullable.";
+      this.Description = metadataField.Nullable ? "This property is nullable." : "This field is not nullable.";
 
       if (metadataField.Deprecated)
       {
-        this.Description += " This field is deprecated.";
+        this.Description += " This property is deprecated.";
       }
     }
 

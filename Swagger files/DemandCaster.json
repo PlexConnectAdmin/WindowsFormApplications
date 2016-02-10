@@ -1,0 +1,129 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Plex Connect engineering API",
+        "description": "Pragmatic REST API for the engineering application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+        "version": "1.0.0"
+    },
+    "host": "test.api.plex.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/engineering",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/JobTrackingSystem/DcJobs": {
+            "get": {
+                "summary": "Dc Jobs",
+                "description": "Dc Jobs",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Jobs response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcJobsResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "DcJobsResponse": {
+            "type": "object",
+            "properties": {
+                "DueDate": {
+                    "type": "string",
+                    "description": "This field is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "JobNo": {
+                    "type": "string",
+                    "description": "This field is not nullable."
+                },
+                "LeadTime": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "OpNo": {
+                    "type": "number",
+                    "description": "This field is not nullable.",
+                    "format": "double"
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This field is not nullable."
+                },
+                "Production": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Rate": {
+                    "type": "number",
+                    "description": "This field is not nullable.",
+                    "format": "double"
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This field is not nullable."
+                },
+                "SetupTime": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "This field is not nullable."
+                },
+                "WorkcenterCode": {
+                    "type": "string",
+                    "description": "This field is not nullable."
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "status": {
+                    "format": "http status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "instance": {
+                    "format": "url",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

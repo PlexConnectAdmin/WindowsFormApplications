@@ -5,6 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonMetadataToClass", "Json
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{9676602E-3538-4F2A-9898-EBA6CDE37600}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swagger files", "Swagger files", "{537ACE7C-403F-41A1-8B38-8A264AD96E01}"
+	ProjectSection(SolutionItems) = preProject
+		Swagger files\CRM.json = Swagger files\CRM.json
+		Swagger files\DemandCaster.json = Swagger files\DemandCaster.json
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

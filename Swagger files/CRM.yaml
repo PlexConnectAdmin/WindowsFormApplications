@@ -1,0 +1,77 @@
+swagger: '2.0'
+info:
+  title: Plex Connect engineering API
+  description: Pragmatic REST API for the engineering application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+  version: 1.0.0
+host: test.api.plex.com
+schemes:
+  - https
+basePath: /engineering
+produces:
+  - application/json
+paths:
+  /v1/CustomerModule/Customers:
+    get:
+      summary: Customers
+      description: Customers
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Customers response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CustomersResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  CustomersResponse:
+    type: object
+    properties:
+      BusinessType:
+        type: string
+        description: This field is not nullable.
+      CustomerCategory:
+        type: string
+        description: This field is nullable.
+      CustomerClass:
+        type: string
+        description: This field is nullable.
+      CustomerCode:
+        type: string
+        description: This field is not nullable.
+      CustomerNo:
+        type: integer
+        description: This field is not nullable.
+        format: Signed 32-bit integer
+      CustomerType:
+        type: string
+        description: This field is not nullable.
+      Name:
+        type: string
+        description: This field is not nullable.
+      Region:
+        type: string
+        description: This field is nullable.
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      title:
+        type: string
+      status:
+        format: http status code
+        type: integer
+      detail:
+        type: string
+      instance:
+        format: url
+        type: string
