@@ -308,10 +308,11 @@ namespace JsonMetadataToClass
       // So the first "'#/definitions/ClientError'" will get marked with "&o0" and the 2nd usage replaced with "*o0"
       // http://yaml.org/spec/current.html
       // This can be confusing to the reader (for example, https://github.com/aaubry/YamlDotNet/issues/126), or when merging parts of Yaml files, so it is disabled here with SerializationOptions.DisableAliases
+      // See also https://github.com/amido/YamlMediaTypeFormatter/wiki/Questions-about-YamlMediaTypeFormatter      
       Serializer serializer = new Serializer(SerializationOptions.DisableAliases);
+      
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
-
       richTextBoxOuput.Text = sw.ToString();
 
       string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
