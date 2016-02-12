@@ -9,7 +9,7 @@
     "schemes": [
         "https"
     ],
-    "basePath": "/engineering",
+    "basePath": "/CRM",
     "produces": [
         "application/json"
     ],

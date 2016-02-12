@@ -6,7 +6,7 @@ info:
 host: test.api.plex.com
 schemes:
   - https
-basePath: /engineering
+basePath: /PartSetup
 produces:
   - application/json
 paths:

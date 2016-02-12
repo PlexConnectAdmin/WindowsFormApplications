@@ -6,7 +6,7 @@ info:
 host: api.plex.com
 schemes:
   - https
-basePath: /engineering
+basePath: /PartSetup
 produces:
   - application/json
 paths:
