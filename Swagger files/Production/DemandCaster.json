@@ -236,7 +236,7 @@
                         "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
-                        "format": "System.DateTime"
+                        "format": "full-date YYYY-MM-DD"
                     },
                     {
                         "name": "ToDate",
@@ -244,7 +244,7 @@
                         "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
-                        "format": "System.DateTime"
+                        "format": "full-date YYYY-MM-DD"
                     }
                 ],
                 "responses": {
@@ -364,7 +364,7 @@
                         "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
-                        "format": "System.DateTime"
+                        "format": "full-date YYYY-MM-DD"
                     },
                     {
                         "name": "AddDateStart",
@@ -372,7 +372,7 @@
                         "description": "This property is not nullable.",
                         "required": true,
                         "type": "string",
-                        "format": "System.DateTime"
+                        "format": "full-date YYYY-MM-DD"
                     }
                 ],
                 "responses": {
@@ -431,7 +431,7 @@
                 "AddDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "AllowShip": {
                     "type": "integer",
@@ -464,7 +464,7 @@
                 "DueDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "FullyShipped": {
                     "type": "boolean",
@@ -485,7 +485,7 @@
                 "OrderDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "OrderNumber": {
                     "type": "string",
@@ -527,7 +527,7 @@
                 "ReleaseShipDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "ReleaseStatus": {
                     "type": "string",
@@ -559,7 +559,7 @@
                 "ShipDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "ShippedStatus": {
                     "type": "integer",
@@ -591,17 +591,17 @@
                 "AddDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "CompletedDate": {
                     "type": "string",
                     "description": "This property is nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "DueDate": {
                     "type": "string",
                     "description": "This property is not nullable.",
-                    "format": "System.DateTime"
+                    "format": "full-date YYYY-MM-DD"
                 },
                 "JobNo": {
                     "type": "string",

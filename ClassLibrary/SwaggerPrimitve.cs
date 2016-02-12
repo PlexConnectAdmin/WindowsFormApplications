@@ -29,7 +29,7 @@
           // So, we are being rather informal here
         case "System.DateTime":
           this.Type = "string";
-          this.Format = "System.DateTime";
+          this.Format = "full-date YYYY-MM-DD";
           break;
         default:
           this.Type = metadataField.DataType.ToLowerInvariant();
