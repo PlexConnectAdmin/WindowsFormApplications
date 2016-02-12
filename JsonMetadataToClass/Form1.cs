@@ -447,7 +447,7 @@ namespace JsonMetadataToClass
           {
             if ((property.Value.Type == JTokenType.Boolean) && (i % 2 == 0))
             {
-              property.Value = true && (bool)property.Value;
+              property.Value = i % 2 == 0;
             }
 
             if (property.Value.Type == JTokenType.Date)
