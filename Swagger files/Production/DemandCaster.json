@@ -1,0 +1,715 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Plex Connect DemandCaster API",
+        "description": "Pragmatic REST API for the DemandCaster application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+        "version": "1.0.0"
+    },
+    "host": "api.plex.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/engineering",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/PartList/DcItemAverageValues": {
+            "get": {
+                "summary": "Dc Item Average Values",
+                "description": "Dc Item Average Values",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "PartNo",
+                        "in": "query",
+                        "description": "Part NoThis property is not nullable.",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "Revision",
+                        "in": "query",
+                        "description": "RevisionThis property is not nullable.",
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Item Average Values response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcItemAverageValuesResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/PartList/DcItemOperations": {
+            "get": {
+                "summary": "Dc Item Operations",
+                "description": "Dc Item Operations",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "PartNo",
+                        "in": "query",
+                        "description": "Part NoThis property is not nullable.",
+                        "type": "string",
+                        "format": "stringDcJobsByDate"
+                    },
+                    {
+                        "name": "Revision",
+                        "in": "query",
+                        "description": "RevisionThis property is not nullable.",
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Item Operations response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcItemOperationsResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/PartList/DcItems": {
+            "get": {
+                "summary": "Dc Items",
+                "description": "Dc Items",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "PartNo",
+                        "in": "query",
+                        "description": "Part NoThis property is not nullable.",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "Revision",
+                        "in": "query",
+                        "description": "RevisionThis property is not nullable.",
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Items response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcItemsResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/JobTrackingSystem/DcJobsByDate": {
+            "get": {
+                "summary": "Dc Jobs By Date",
+                "description": "Dc Jobs By Date",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "FromDate",
+                        "in": "query",
+                        "description": "This property is not nullable.",
+                        "required": true,
+                        "type": "string",
+                        "format": "System.DateTime"
+                    },
+                    {
+                        "name": "ToDate",
+                        "in": "query",
+                        "description": "This property is not nullable.",
+                        "required": true,
+                        "type": "string",
+                        "format": "System.DateTime"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Jobs By Date response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcJobsByDateResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/WorkcenterList/DcWorkcenters": {
+            "get": {
+                "summary": "Dc Workcenters",
+                "description": "Dc Workcenters",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Workcenters response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcWorkcentersResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/CustomerOrdersandReleases/DcSalesOrderReleases": {
+            "get": {
+                "summary": "Dc Sales Order Releases",
+                "description": "Dc Sales Order Releases",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "AddDateEnd",
+                        "in": "query",
+                        "description": "This property is not nullable.",
+                        "required": true,
+                        "type": "string",
+                        "format": "System.DateTime"
+                    },
+                    {
+                        "name": "AddDateStart",
+                        "in": "query",
+                        "description": "This property is not nullable.",
+                        "required": true,
+                        "type": "string",
+                        "format": "System.DateTime"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Sales Order Releases response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcSalesOrderReleasesResponse"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "DcSalesOrderReleasesResponse": {
+            "type": "object",
+            "properties": {
+                "Active": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 16-bit integer"
+                },
+                "AddDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "AllowShip": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 16-bit integer"
+                },
+                "CancelledStatus": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 16-bit integer"
+                },
+                "Cost": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "CustomerCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "CustomerName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "CustomerNo": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "FullyShipped": {
+                    "type": "boolean",
+                    "description": "This property is not nullable."
+                },
+                "ItemCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "LineNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Location": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "OrderDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "OrderNumber": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "OrderQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "PartKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "POLineKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "QuantityShipped": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "ReleaseKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "ReleaseNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "ReleaseShipDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "ReleaseStatus": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "ReleaseStatusKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "ReleaseType": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "ReleaseTypeKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "SalesPrice": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "ShipDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "ShippedStatus": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 16-bit integer"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
+        "DcWorkcentersResponse": {
+            "type": "object",
+            "properties": {
+                "WorkcenterCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "WorkcenterName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
+        "DcJobsByDateResponse": {
+            "type": "object",
+            "properties": {
+                "AddDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "CompletedDate": {
+                    "type": "string",
+                    "description": "This property is nullable.",
+                    "format": "System.DateTime"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "System.DateTime"
+                },
+                "JobNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Production": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Quantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
+        "DcItemsResponse": {
+            "type": "object",
+            "properties": {
+                "ApprovedSupplier": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "MakeOrBuy": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Inventory": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "AverageValue": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "AvgPrice": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Cost": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "CustomerPartExists": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 16-bit integer"
+                },
+                "Engineer2FullName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Engineer3FullName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "EngineerFullName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "InventoryUnit": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "LeadTime": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "MinimumInventoryQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "MinimumJobQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "MinimumOrderQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartGroup": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartProductGroup": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartType": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PlannerFullName": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PlanningGroup": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "ProductType": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "StandardJobQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "StandardOrderQuantity": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                }
+            }
+        },
+        "DcItemOperationsResponse": {
+            "type": "object",
+            "properties": {
+                "LeadTime": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "OperationCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "OperationNo": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "RunTime": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "SetupTime": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "WorkcenterCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
+        "DcItemAverageValuesResponse": {
+            "type": "object",
+            "properties": {
+                "AveragePrice": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "CustomerCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "CustomerPartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "CustomerPartRevision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "PartKey": {
+                    "type": "integer",
+                    "description": "This property is not nullable.",
+                    "format": "Signed 32-bit integer"
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "status": {
+                    "format": "http status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "instance": {
+                    "format": "url",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

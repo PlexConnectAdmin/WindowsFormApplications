@@ -1,0 +1,130 @@
+swagger: '2.0'
+info:
+  title: Plex Connect Part Setup API
+  description: Pragmatic REST API for the Part Setup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+  version: 1.0.0
+host: api.plex.com
+schemes:
+  - https
+basePath: /engineering
+produces:
+  - application/json
+paths:
+  /v1/PartList/PartGroups:
+    get:
+      summary: Part Groups
+      description: Part Groups
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Part Groups response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PartGroupsResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/PartList/PartProductTypes:
+    get:
+      summary: Part Product Types
+      description: Part Product Types
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+        - name: ProductType
+          in: query
+          description: This property is nullable.
+          type: string
+      responses:
+        '200':
+          description: Part Product Types response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PartProductTypesResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/PartList/PartTypes:
+    get:
+      summary: Part Types
+      description: Part Types
+      parameters:
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Part Types response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PartTypesResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  PartTypesResponse:
+    type: object
+    properties:
+      PartGroup:
+        type: string
+        description: This property is not nullable.
+      PartGroupKey:
+        type: integer
+        description: This property is not nullable.
+        format: Signed 32-bit integer
+  PartProductTypesResponse:
+    type: object
+    properties:
+      PartGroup:
+        type: string
+        description: This property is nullable.
+      ProductType:
+        type: string
+        description: This property is nullable.
+      ProductTypeCode:
+        type: string
+        description: This property is nullable.
+      ProductTypeKey:
+        type: integer
+        description: This property is nullable.
+        format: Signed 32-bit integer
+  PartGroupsResponse:
+    type: object
+    properties:
+      Description:
+        type: string
+        description: This property is not nullable.
+      PartType:
+        type: string
+        description: This property is not nullable.
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      title:
+        type: string
+      status:
+        format: http status code
+        type: integer
+      detail:
+        type: string
+      instance:
+        format: url
+        type: string

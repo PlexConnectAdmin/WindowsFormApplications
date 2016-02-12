@@ -6,10 +6,29 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{9676602E-3538-4F2A-9898-EBA6CDE37600}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swagger files", "Swagger files", "{537ACE7C-403F-41A1-8B38-8A264AD96E01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", "{668C6F0E-8A46-4E38-9765-E66144AC4DBD}"
 	ProjectSection(SolutionItems) = preProject
-		Swagger files\CRM.json = Swagger files\CRM.json
-		Swagger files\DemandCaster.json = Swagger files\DemandCaster.json
-		ReadMe.txt = ReadMe.txt
+		Swagger files\Production\CRM.json = Swagger files\Production\CRM.json
+		Swagger files\Production\CRM.yaml = Swagger files\Production\CRM.yaml
+		Swagger files\Production\DemandCaster.json = Swagger files\Production\DemandCaster.json
+		Swagger files\Production\DemandCaster.yaml = Swagger files\Production\DemandCaster.yaml
+		Swagger files\Production\PartSetup.json = Swagger files\Production\PartSetup.json
+		Swagger files\Production\PartSetup.yaml = Swagger files\Production\PartSetup.yaml
+		Swagger files\Production\Tenant.json = Swagger files\Production\Tenant.json
+		Swagger files\Production\Tenant.yaml = Swagger files\Production\Tenant.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{EE64A348-59BA-40FA-93F3-0F3AF331FF61}"
+	ProjectSection(SolutionItems) = preProject
+		Swagger files\Test\CRM.json = Swagger files\Test\CRM.json
+		Swagger files\Test\CRM.yaml = Swagger files\Test\CRM.yaml
+		Swagger files\Test\DemandCaster.json = Swagger files\Test\DemandCaster.json
+		Swagger files\Test\DemandCaster.yaml = Swagger files\Test\DemandCaster.yaml
+		Swagger files\Test\PartSetup.json = Swagger files\Test\PartSetup.json
+		Swagger files\Test\PartSetup.yaml = Swagger files\Test\PartSetup.yaml
+		Swagger files\Test\Tenant.json = Swagger files\Test\Tenant.json
+		Swagger files\Test\Tenant.yaml = Swagger files\Test\Tenant.yaml
 	EndProjectSection
 EndProject
 Global
@@ -29,5 +48,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{668C6F0E-8A46-4E38-9765-E66144AC4DBD} = {537ACE7C-403F-41A1-8B38-8A264AD96E01}
+		{EE64A348-59BA-40FA-93F3-0F3AF331FF61} = {537ACE7C-403F-41A1-8B38-8A264AD96E01}
 	EndGlobalSection
 EndGlobal
