@@ -5,21 +5,21 @@ info:
   version: 1.0.0
 host: test.api.plex.com
 schemes:
-- https
+  - https
 basePath: /tenant
 produces:
-- application/json
+  - application/json
 paths:
   /v1/Login/CompanyProfile:
     get:
       summary: Company Profile
       description: Company Profile
       parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
       responses:
         '200':
           description: Company Profile response.
@@ -27,41 +27,18 @@ paths:
             type: array
             items:
               $ref: '#/definitions/CompanyProfileResponse'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /v1/Login/CompanyProfile:
-    get:
-      summary: Company Profile
-      description: Company Profile
-      parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
-      responses:
-        '200':
-          description: Company Profile response.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/CompanyProfileResponse'
+        '403':
+          description: Access not allowed
+          schema: &o0
+            $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found
+          schema: *o0
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 definitions:
-  CompanyProfileResponse:
-    type: object
-    properties:
-      Name:
-        type: string
-        description: This property is nullable.
-      PlexusCustomerCode:
-        type: string
-        description: This property is nullable.
   CompanyProfileResponse:
     type: object
     properties:
@@ -86,3 +63,19 @@ definitions:
       instance:
         format: url
         type: string
+  ClientError:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: http status code
+        type: integer
+      detail:
+        type: string
+      instance:
+        format: url
+        type: string
+

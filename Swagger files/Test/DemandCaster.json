@@ -9,7 +9,7 @@
     "schemes": [
         "https"
     ],
-    "basePath": "//engineering",
+    "basePath": "/DemandCaster",
     "produces": [
         "application/json"
     ],
@@ -48,6 +48,24 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/DcItemAverageValuesResponse"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
                             }
                         }
                     },
@@ -97,6 +115,24 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -140,6 +176,24 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/DcItemsResponse"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
                             }
                         }
                     },
@@ -191,6 +245,24 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -220,6 +292,24 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/DcWorkcentersResponse"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
                             }
                         }
                     },
@@ -268,6 +358,24 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/DcSalesOrderReleasesResponse"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
                             }
                         }
                     },
@@ -693,6 +801,28 @@
             "type": "object",
             "properties": {
                 "code": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "status": {
+                    "format": "http status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "instance": {
+                    "format": "url",
+                    "type": "string"
+                }
+            }
+        },
+        "ClientError": {
+            "type": "object",
+            "properties": {
+                "type": {
                     "type": "string"
                 },
                 "title": {

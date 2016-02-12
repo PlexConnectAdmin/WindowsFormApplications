@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientError.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Metadata.cs" />
     <Compile Include="MetadataField.cs" />

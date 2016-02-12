@@ -220,7 +220,7 @@ namespace JsonMetadataToClass
             responses =
             new
             {
-              // "responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C" is just a unique string to make replacement in the serialized value later reliable
+              // "responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", etc. is just a unique string to make replacement in the serialized value later reliable
               responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
               new
               {
@@ -236,6 +236,18 @@ namespace JsonMetadataToClass
                     }
                   }
               },
+              response403sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
+            new
+            {
+              description = "Access not allowed",
+              schema = new{refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'"}
+            },
+              response404sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
+            new
+            {
+              description = "No records found",
+              schema = new{ refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'" }
+            },
               @default =
             new
             {
@@ -270,6 +282,18 @@ namespace JsonMetadataToClass
               detail = new SwaggerPrimitiveDataType() { type = "string" },
               instance = new SwaggerPrimitiveFormattedDataType() { type = "string", format = "url" }
             }
+          },
+          ClientError = new
+          {
+            type = "object",
+            properties = new ClassLibrary.ClientError()
+            {
+              type = new SwaggerPrimitiveDataType() { type = "string" },
+              title = new SwaggerPrimitiveDataType() { type = "string" },
+              status = new SwaggerPrimitiveFormattedDataType() { type = "integer", format = "http status code" },
+              detail = new SwaggerPrimitiveDataType() { type = "string" },
+              instance = new SwaggerPrimitiveFormattedDataType() { type = "string", format = "url" }
+            }
           }
         }
       };
@@ -278,14 +302,19 @@ namespace JsonMetadataToClass
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
 
-      //richTextBoxOuput.Text = jsonString;//sw.ToString();
       richTextBoxOuput.Text = sw.ToString();
 
       string path = "/v" + this.txtVersion.Text + "/" + metadata.apiModuleRouteName + "/" + metadata.apiResourceRouteName;
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("pathA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", path);
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'200'");
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response403sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'403'");
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response404sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'404'");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "$ref");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", responseName.Replace(" ", string.Empty));
+
+      //NOTE: in Yaml, Repeated nodes are first identified by an anchor (marked with the ampersand - “&”), and are then aliased (referenced with an asterisk - “*”) thereafter.
+      // So the first "'#/definitions/ClientError'" will get marked with "&o0" and the 2nd usage replaced with "*o0"
+      // http://yaml.org/spec/current.html
     }
 
     /// <summary>

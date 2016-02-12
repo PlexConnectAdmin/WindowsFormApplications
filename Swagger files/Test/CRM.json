@@ -37,6 +37,24 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Access not allowed.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No records found.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ClientError"
+                            }
+                        }
+                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -90,6 +108,28 @@
             "type": "object",
             "properties": {
                 "code": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "status": {
+                    "format": "http status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "type": "string"
+                },
+                "instance": {
+                    "format": "url",
+                    "type": "string"
+                }
+            }
+        },
+        "ClientError": {
+            "type": "object",
+            "properties": {
+                "type": {
                     "type": "string"
                 },
                 "title": {

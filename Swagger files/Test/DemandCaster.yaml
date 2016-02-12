@@ -37,6 +37,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcItemAverageValuesResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -68,6 +77,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcItemOperationsResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -99,6 +117,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcItemsResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -132,6 +159,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcJobsByDateResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -153,6 +189,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcWorkcentersResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -186,6 +231,15 @@ paths:
             type: array
             items:
               $ref: '#/definitions/DcSalesOrderReleasesResponse'
+        '403':
+          description: Access not allowed.
+          schema: &o0
+            type: array
+            items:
+              $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found.
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -517,3 +571,19 @@ definitions:
       instance:
         format: url
         type: string
+  ClientError:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: http status code
+        type: integer
+      detail:
+        type: string
+      instance:
+        format: url
+        type: string
+

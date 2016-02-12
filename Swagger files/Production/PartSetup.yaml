@@ -27,6 +27,13 @@ paths:
             type: array
             items:
               $ref: '#/definitions/PartGroupsResponse'
+        '403':
+          description: Access not allowed
+          schema: &o0
+            $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found
+          schema: *o0
         default:
           description: Unexpected error
           schema:
@@ -128,3 +135,19 @@ definitions:
       instance:
         format: url
         type: string
+  ClientError:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: http status code
+        type: integer
+      detail:
+        type: string
+      instance:
+        format: url
+        type: string
+
