@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Plex Connect engineering API",
-        "description": "Pragmatic REST API for the engineering application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+        "title": "Plex Connect Part Setup API",
+        "description": "Pragmatic REST API for the Part Setup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
         "version": "1.0.0"
     },
     "host": "test.api.plex.com",

@@ -1,25 +1,25 @@
 swagger: '2.0'
 info:
-  title: Plex Connect engineering API
-  description: Pragmatic REST API for the engineering application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+  title: Plex Connect Part Setup API
+  description: Pragmatic REST API for the Part Setup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
   version: 1.0.0
 host: test.api.plex.com
 schemes:
-- https
+  - https
 basePath: /engineering
 produces:
-- application/json
+  - application/json
 paths:
   /v1/PartList/PartGroups:
     get:
       summary: Part Groups
       description: Part Groups
       parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
       responses:
         '200':
           description: Part Groups response.
@@ -36,15 +36,15 @@ paths:
       summary: Part Product Types
       description: Part Product Types
       parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
-      - name: ProductType
-        in: query
-        description: This property is nullable.
-        type: string
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
+        - name: ProductType
+          in: query
+          description: This property is nullable.
+          type: string
       responses:
         '200':
           description: Part Product Types response.
@@ -61,11 +61,11 @@ paths:
       summary: Part Types
       description: Part Types
       parameters:
-      - name: Authorization
-        in: header
-        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-        required: true
-        type: string
+        - name: Authorization
+          in: header
+          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+          required: true
+          type: string
       responses:
         '200':
           description: Part Types response.
