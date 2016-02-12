@@ -434,7 +434,7 @@ namespace JsonMetadataToClass
       return lipsum.Substring(length);
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void BtnAnonymize(object sender, EventArgs e)
     {
       dynamic dynJson = JsonConvert.DeserializeObject(richTextBoxInput.Text);
       foreach (var item in dynJson.embedded)
@@ -445,6 +445,21 @@ namespace JsonMetadataToClass
         {
           foreach (JProperty property in content.Properties())
           {
+            if ((property.Value.Type == JTokenType.Boolean) && (i % 2 == 0))
+            {
+              property.Value = true && (bool)property.Value;
+            }
+
+            if (property.Value.Type == JTokenType.Date)
+            {
+              property.Value = DateTime.UtcNow.ToUniversalTime();
+            }
+
+            if (property.Value.Type == JTokenType.Float)
+            {
+              property.Value = (decimal)property.Value + (decimal)i / 10;
+            }
+
             if (property.Value.Type == JTokenType.Integer)
             {
               property.Value = i++;
