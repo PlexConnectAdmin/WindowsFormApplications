@@ -1,5 +1,5 @@
 # WindowsFormApplications
-Convert Plex API metadata to C# classes and (soon) Swagger files. An as-is work and progress subject to changes in Plex meta data and Swagger versions.
+Convert Plex API metadata to C# classes and Swagger files for GET requests. An Anonymize button allows responses to be replaced with lorum lipsum for use in public examples, etc. An as-is work and progress subject to changes in Plex meta data and Swagger versions.
 
 For generating YAML, this solution includes the the [YamlDotNet](http://aaubry.net/pages/yamldotnet.html) library under the MIT License:
 
