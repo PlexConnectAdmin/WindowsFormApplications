@@ -248,6 +248,12 @@ namespace JsonMetadataToClass
               description = "No records found",
               schema = new{ refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'" }
             },
+              response500sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
+            new
+            {
+              description = "Unexpected error",
+              schema = new { refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/Error'" }
+            },
               @default =
             new
             {
@@ -309,6 +315,7 @@ namespace JsonMetadataToClass
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responsesA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'200'");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response403sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'403'");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response404sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'404'");
+      richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response500sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'500'");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "$ref");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", responseName.Replace(" ", string.Empty));
 

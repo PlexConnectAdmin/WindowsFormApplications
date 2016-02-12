@@ -34,10 +34,11 @@ paths:
         '404':
           description: No records found
           schema: *o0
-        default:
+        '500': &o1
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+        default: *o1
 definitions:
   CompanyProfileResponse:
     type: object

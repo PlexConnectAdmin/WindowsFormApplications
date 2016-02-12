@@ -1,23 +1,23 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Plex Connect CRM API (TEST)",
-        "description": "Pragmatic REST API for the CRM application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+        "title": "Plex Connect Tenant API (TEST)",
+        "description": "Pragmatic REST API for the Tenant application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
         "version": "1.0.0"
     },
     "host": "test.api.plex.com",
     "schemes": [
         "https"
     ],
-    "basePath": "/CRM",
+    "basePath": "/tenant",
     "produces": [
         "application/json"
     ],
     "paths": {
-        "/v1/CustomerModule/Customers": {
+        "/v1/Login/CompanyProfile": {
             "get": {
-                "summary": "Customers",
-                "description": "Customers",
+                "summary": "Company Profile",
+                "description": "Company Profile",
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -29,30 +29,24 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Customers response.",
+                        "description": "Company Profile response.",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/CustomersResponse"
+                                "$ref": "#/definitions/CompanyProfileResponse"
                             }
                         }
                     },
                     "403": {
-                        "description": "Access not allowed.",
+                        "description": "Access not allowed",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ClientError"
-                            }
+                            "$ref": "#/definitions/ClientError"
                         }
                     },
                     "404": {
-                        "description": "No records found.",
+                        "description": "No records found",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/ClientError"
-                            }
+                            "$ref": "#/definitions/ClientError"
                         }
                     },
                     "default": {
@@ -66,39 +60,14 @@
         }
     },
     "definitions": {
-        "CustomersResponse": {
+        "CompanyProfileResponse": {
             "type": "object",
             "properties": {
-                "BusinessType": {
-                    "type": "string",
-                    "description": "This property is not nullable."
-                },
-                "CustomerCategory": {
-                    "type": "string",
-                    "description": "This property is nullable."
-                },
-                "CustomerClass": {
-                    "type": "string",
-                    "description": "This property is nullable."
-                },
-                "CustomerCode": {
-                    "type": "string",
-                    "description": "This property is not nullable."
-                },
-                "CustomerNo": {
-                    "type": "integer",
-                    "description": "This property is not nullable.",
-                    "format": "Signed 32-bit integer"
-                },
-                "CustomerType": {
-                    "type": "string",
-                    "description": "This property is not nullable."
-                },
                 "Name": {
                     "type": "string",
-                    "description": "This property is not nullable."
+                    "description": "This property is nullable."
                 },
-                "Region": {
+                "PlexusCustomerCode": {
                     "type": "string",
                     "description": "This property is nullable."
                 }
