@@ -312,7 +312,7 @@ namespace JsonMetadataToClass
       // This can be confusing to the reader (for example, https://github.com/aaubry/YamlDotNet/issues/126), or when merging parts of Yaml files, so it is disabled here with SerializationOptions.DisableAliases
       // See also https://github.com/amido/YamlMediaTypeFormatter/wiki/Questions-about-YamlMediaTypeFormatter      
       Serializer serializer = new Serializer(SerializationOptions.DisableAliases);
-      
+
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
       richTextBoxOuput.Text = sw.ToString();
@@ -469,10 +469,6 @@ namespace JsonMetadataToClass
             {
               property.Value = GetLoremLipsum(i++, property.Value.ToString().Length);
             }
-
-            Console.WriteLine(string.Format("Name: [{0}], Value: [{1}], Type: [{2}].", property.Name, property.Value, property.Type.ToString()));
-            //string tempValue = prop.Value.ToString(); // This is not allowed 
-            //here more code in order to save in a database
           }
         }
 
