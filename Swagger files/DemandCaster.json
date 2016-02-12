@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Plex Connect DemandCaster API",
+        "title": "Plex Connect DemandCaster API (TEST)",
         "description": "Pragmatic REST API for the DemandCaster application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
         "version": "1.0.0"
     },
