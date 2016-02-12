@@ -240,13 +240,13 @@ namespace JsonMetadataToClass
             new
             {
               description = "Access not allowed",
-              schema = new{refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'"}
+              schema = new { refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'" }
             },
               response404sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
             new
             {
               description = "No records found",
-              schema = new{ refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'" }
+              schema = new { refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C = "'#/definitions/ClientError'" }
             },
               response500sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C =
             new
@@ -304,7 +304,11 @@ namespace JsonMetadataToClass
         }
       };
 
-      Serializer serializer = new Serializer();
+      //NOTE: in Yaml, Repeated nodes are first identified by an anchor (marked with the ampersand - “&”), and are then aliased (referenced with an asterisk - “*”) thereafter.
+      // So the first "'#/definitions/ClientError'" will get marked with "&o0" and the 2nd usage replaced with "*o0"
+      // http://yaml.org/spec/current.html
+      // This can be confusing to the reader (for example, https://github.com/aaubry/YamlDotNet/issues/126), or when merging parts of Yaml files, so it is disabled here with SerializationOptions.DisableAliases
+      Serializer serializer = new Serializer(SerializationOptions.DisableAliases);
       StringWriter sw = new StringWriter();
       serializer.Serialize(sw, swagger);
 
@@ -318,10 +322,6 @@ namespace JsonMetadataToClass
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("response500sA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "'500'");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("refA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", "$ref");
       richTextBoxOuput.Text = richTextBoxOuput.Text.Replace("responseA3BB6FF2BF8C4DF0AAF7FD43A0F2FB0C", responseName.Replace(" ", string.Empty));
-
-      //NOTE: in Yaml, Repeated nodes are first identified by an anchor (marked with the ampersand - “&”), and are then aliased (referenced with an asterisk - “*”) thereafter.
-      // So the first "'#/definitions/ClientError'" will get marked with "&o0" and the 2nd usage replaced with "*o0"
-      // http://yaml.org/spec/current.html
     }
 
     /// <summary>
