@@ -42,6 +42,7 @@
       this.label5 = new System.Windows.Forms.Label();
       this.btnYaml = new System.Windows.Forms.Button();
       this.button1 = new System.Windows.Forms.Button();
+      this.label6 = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // buttonGenerateCSharp
@@ -75,9 +76,10 @@
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(25, 12);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(188, 13);
+      this.label2.Size = new System.Drawing.Size(140, 13);
       this.label2.TabIndex = 6;
-      this.label2.Text = "Metadata Input (initialized with sample)";
+      this.label2.Text = "Input (initialized with sample)";
+      this.label2.Click += new System.EventHandler(this.label2_Click);
       // 
       // label3
       // 
@@ -153,7 +155,7 @@
       // 
       // button1
       // 
-      this.button1.Location = new System.Drawing.Point(666, 513);
+      this.button1.Location = new System.Drawing.Point(197, 579);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(75, 23);
       this.button1.TabIndex = 16;
@@ -161,11 +163,22 @@
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
+      // label6
+      // 
+      this.label6.AutoSize = true;
+      this.label6.Location = new System.Drawing.Point(313, 579);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(411, 13);
+      this.label6.TabIndex = 17;
+      this.label6.Text = "Put in Input a sample response { \"links\": [...], \"embedded\": [...], \"total\": 2, \"" +
+    "count\": 2 }";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(957, 578);
+      this.ClientSize = new System.Drawing.Size(957, 614);
+      this.Controls.Add(this.label6);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.btnYaml);
       this.Controls.Add(this.txtVersion);
@@ -202,6 +215,7 @@
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Button btnYaml;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Label label6;
   }
 }
 
