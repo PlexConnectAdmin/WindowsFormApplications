@@ -1,25 +1,25 @@
 swagger: '2.0'
 info:
-  title: Plex Connect Part Setup API
-  description: Pragmatic REST API for the Part Setup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+  title: Plex Connect partsetup API
+  description: Pragmatic REST API for the partsetup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
   version: 1.0.0
 host: api.plex.com
 schemes:
-  - https
-basePath: /PartSetup
+- https
+basePath: /partsetup
 produces:
-  - application/json
+- application/json
 paths:
   /v1/PartList/PartGroups:
     get:
       summary: Part Groups
       description: Part Groups
       parameters:
-        - name: Authorization
-          in: header
-          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-          required: true
-          type: string
+      - name: Authorization
+        in: header
+        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+        required: true
+        type: string
       responses:
         '200':
           description: Part Groups response.
@@ -44,15 +44,15 @@ paths:
       summary: Part Product Types
       description: Part Product Types
       parameters:
-        - name: Authorization
-          in: header
-          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-          required: true
-          type: string
-        - name: ProductType
-          in: query
-          description: This property is nullable.
-          type: string
+      - name: Authorization
+        in: header
+        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+        required: true
+        type: string
+      - name: ProductType
+        in: query
+        description: This property is nullable.
+        type: string
       responses:
         '200':
           description: Part Product Types response.
@@ -60,20 +60,28 @@ paths:
             type: array
             items:
               $ref: '#/definitions/PartProductTypesResponse'
-        default:
+        '403':
+          description: Access not allowed
+          schema: &o0
+            $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found
+          schema: *o0
+        '500': &o1
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+        default: *o1
   /v1/PartList/PartTypes:
     get:
       summary: Part Types
       description: Part Types
       parameters:
-        - name: Authorization
-          in: header
-          description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
-          required: true
-          type: string
+      - name: Authorization
+        in: header
+        description: Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`
+        required: true
+        type: string
       responses:
         '200':
           description: Part Types response.
@@ -81,10 +89,18 @@ paths:
             type: array
             items:
               $ref: '#/definitions/PartTypesResponse'
-        default:
+        '403':
+          description: Access not allowed
+          schema: &o0
+            $ref: '#/definitions/ClientError'
+        '404':
+          description: No records found
+          schema: *o0
+        '500': &o1
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+        default: *o1
 definitions:
   PartTypesResponse:
     type: object
@@ -151,4 +167,3 @@ definitions:
       instance:
         format: url
         type: string
-

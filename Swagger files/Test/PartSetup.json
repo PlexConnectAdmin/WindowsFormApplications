@@ -1,15 +1,15 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Plex Connect Part Setup API (TEST)",
-        "description": "Pragmatic REST API for the Part Setup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+        "title": "Plex Connect partsetup API (TEST)",
+        "description": "Pragmatic REST API for the partsetup application of the Plex Manufacturing Cloud. All resources require Authorization header for authorization with a current bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
         "version": "1.0.0"
     },
     "host": "test.api.plex.com",
     "schemes": [
         "https"
     ],
-    "basePath": "/PartSetup",
+    "basePath": "/partsetup",
     "produces": [
         "application/json"
     ],
@@ -47,6 +47,12 @@
                         "description": "No records found",
                         "schema": {
                             "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
                         }
                     },
                     "default": {
@@ -87,6 +93,24 @@
                             }
                         }
                     },
+                    "403": {
+                        "description": "Access not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "404": {
+                        "description": "No records found",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -117,6 +141,24 @@
                             "items": {
                                 "$ref": "#/definitions/PartTypesResponse"
                             }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "404": {
+                        "description": "No records found",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
                         }
                     },
                     "default": {
