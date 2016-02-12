@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ClassLibrary;
 using YamlDotNet.Serialization;
@@ -21,6 +22,7 @@ namespace JsonMetadataToClass
   public partial class Form1 : Form
   {
     string _apiModuleRouteName, _apiResourceRouteName, _apiActionRouteName;
+    const string lorem = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit Aenean semper dignissim sagittis Maecenas at arcu sed enim faucibus congue mollis eget erat. Curabitur commodo nisl eget nisl feugiat, ut suscipit nisi hendrerit. Integer molestie libero id justo pellentesque dictum. In hac habitasse platea dictumst. Mauris felis sem, vulputate sed suscipit tempor vel turpis. Vivamus vitae semper lorem";
 
     public Form1()
     {
@@ -414,6 +416,53 @@ namespace JsonMetadataToClass
     private void richTextBoxInput_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    private static string GetLoremLipsum(int seed, int length)
+    {
+      Random rnd = new Random(seed);
+
+      string[] arraylist = lorem.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+      string lipsum = arraylist[rnd.Next(arraylist.Length)];
+
+      while (lipsum.Length < length)
+      {
+        lipsum += ' ' + arraylist[rnd.Next(arraylist.Length)];
+      }
+
+      return lipsum.Substring(length);
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      dynamic dynJson = JsonConvert.DeserializeObject(richTextBoxInput.Text);
+      foreach (var item in dynJson.embedded)
+      {
+        JArray jarr = dynJson.embedded;
+        int i = 1;
+        foreach (JObject content in jarr.Children<JObject>())
+        {
+          foreach (JProperty property in content.Properties())
+          {
+            if (property.Value.Type == JTokenType.Integer)
+            {
+              property.Value = i++;
+            }
+
+            if (property.Value.Type == JTokenType.String)
+            {
+              property.Value = GetLoremLipsum(i++, property.Value.ToString().Length);
+            }
+
+            Console.WriteLine(string.Format("Name: [{0}], Value: [{1}], Type: [{2}].", property.Name, property.Value, property.Type.ToString()));
+            //string tempValue = prop.Value.ToString(); // This is not allowed 
+            //here more code in order to save in a database
+          }
+        }
+
+        this.richTextBoxOuput.Text = dynJson.ToString();
+      }
     }
 
   }
