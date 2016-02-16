@@ -431,7 +431,7 @@ namespace JsonMetadataToClass
         lipsum += ' ' + arraylist[rnd.Next(arraylist.Length)];
       }
 
-      return lipsum.Substring(length);
+      return lipsum.Substring(0, length);
     }
 
     private void BtnAnonymize(object sender, EventArgs e)
