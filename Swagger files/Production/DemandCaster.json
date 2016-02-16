@@ -203,12 +203,6 @@
                             }
                         }
                     },
-                    "500": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -275,12 +269,6 @@
                             }
                         }
                     },
-                    "500": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
@@ -329,12 +317,6 @@
                             "items": {
                                 "$ref": "#/definitions/ClientError"
                             }
-                        }
-                    },
-                    "500": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
                         }
                     },
                     "default": {
@@ -403,6 +385,50 @@
                             }
                         }
                     },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/JobTrackingSystem/DcJobs": {
+            "get": {
+                "summary": "Dc Jobs",
+                "description": "Dc Jobs",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Authorization via bearer token. Abbreviated example `Bearer eyJ0eXAi...9LA`",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dc Jobs response.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DcJobsResponse"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Access not allowed",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
+                    "404": {
+                        "description": "No records found",
+                        "schema": {
+                            "$ref": "#/definitions/ClientError"
+                        }
+                    },
                     "500": {
                         "description": "Unexpected error",
                         "schema": {
@@ -420,6 +446,61 @@
         }
     },
     "definitions": {
+        "DcJobsResponse": {
+            "type": "object",
+            "properties": {
+                "DueDate": {
+                    "type": "string",
+                    "description": "This property is not nullable.",
+                    "format": "full-date YYYY-MM-DD"
+                },
+                "JobNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "LeadTime": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "OpNo": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "PartNo": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "Production": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Rate": {
+                    "type": "number",
+                    "description": "This property is not nullable.",
+                    "format": "double"
+                },
+                "Revision": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "SetupTime": {
+                    "type": "number",
+                    "description": "This property is nullable.",
+                    "format": "double"
+                },
+                "Status": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                },
+                "WorkcenterCode": {
+                    "type": "string",
+                    "description": "This property is not nullable."
+                }
+            }
+        },
         "DcSalesOrderReleasesResponse": {
             "type": "object",
             "properties": {
