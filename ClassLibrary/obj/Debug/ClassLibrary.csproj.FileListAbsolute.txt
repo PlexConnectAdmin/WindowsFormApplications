@@ -2,4 +2,3 @@ c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\ClassLibrary\bi
 c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\ClassLibrary\bin\Debug\ClassLibrary.pdb
 c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\ClassLibrary\obj\Debug\ClassLibrary.dll
 c:\users\tsch\documents\visual studio 2012\Projects\SwaggerMaker\ClassLibrary\obj\Debug\ClassLibrary.pdb
-C:\Users\tsch\Documents\Visual Studio 2012\Projects\SwaggerMaker\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache

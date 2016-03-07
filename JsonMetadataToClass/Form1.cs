@@ -437,6 +437,13 @@ namespace JsonMetadataToClass
     private void BtnAnonymize(object sender, EventArgs e)
     {
       dynamic dynJson = JsonConvert.DeserializeObject(richTextBoxInput.Text);
+
+      if (dynJson.embedded == null)
+      {
+        this.richTextBoxOuput.Text = "Not in expected HAL format";
+        return;
+      }
+
       foreach (var item in dynJson.embedded)
       {
         JArray jarr = dynJson.embedded;
@@ -474,6 +481,7 @@ namespace JsonMetadataToClass
 
         this.richTextBoxOuput.Text = dynJson.ToString();
       }
+
     }
 
     private void label2_Click(object sender, EventArgs e)
